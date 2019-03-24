@@ -1,28 +1,28 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.Rendering;
-using Microsoft.EntityFrameworkCore;
-using Event.Web.Data;
-using Event.Web.Data.Entities;
-
+﻿
 namespace Event.Web.Controllers
 {
+    using System.Threading.Tasks;
+    using Data;
+    using Data.Entities;
+    using Helpers;
+    using Microsoft.AspNetCore.Mvc;
+    using Microsoft.EntityFrameworkCore;
+
     public class VotingsController : Controller
     {
-        private readonly DataContext _context;
+        private readonly IVotingRepository votingRepository;
+        private readonly IUserHelper userHelper;
 
-        public VotingsController(DataContext context)
+        public VotingsController(IVotingRepository votingRepository, IUserHelper userHelper)
         {
-            _context = context;
+            this.votingRepository = votingRepository;
+            this.userHelper = userHelper;
         }
 
         // GET: Votings
-        public async Task<IActionResult> Index()
+        public IActionResult Index()
         {
-            return View(await _context.Votings.ToListAsync());
+            return View(this.votingRepository.GetAll());
         }
 
         // GET: Votings/Details/5
@@ -33,14 +33,13 @@ namespace Event.Web.Controllers
                 return NotFound();
             }
 
-            var voting = await _context.Votings
-                .FirstOrDefaultAsync(m => m.VotingId == id);
-            if (voting == null)
+            var votings = await this.votingRepository.GetByIdAsync(id.Value);
+            if (votings == null)
             {
                 return NotFound();
             }
 
-            return View(voting);
+            return View(votings);
         }
 
         // GET: Votings/Create
@@ -49,23 +48,23 @@ namespace Event.Web.Controllers
             return View();
         }
 
-        // POST: Votings/Create
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
-        // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
+        // POST: Voting/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("VotingId,Description,Remarks,DateTimeStart,DateTimeEnd,IsEnableBlankVote,QuantityVotes,QuantityBlankVotes,CandidateWinId")] Voting voting)
+        public async Task<IActionResult> Create(Voting voting)
         {
             if (ModelState.IsValid)
             {
-                _context.Add(voting);
-                await _context.SaveChangesAsync();
+                // TODO: Pending to change to: this.User.Identity.Name
+                voting.User = await this.userHelper.GetUserByEmailAsync("diegozapata1345z@gmail.com");
+                await this.votingRepository.CreateAsync(voting);
                 return RedirectToAction(nameof(Index));
             }
+
             return View(voting);
         }
 
-        // GET: Votings/Edit/5
+        // GET: Products/Edit/5
         public async Task<IActionResult> Edit(int? id)
         {
             if (id == null)
@@ -73,36 +72,31 @@ namespace Event.Web.Controllers
                 return NotFound();
             }
 
-            var voting = await _context.Votings.FindAsync(id);
+            var voting = await this.votingRepository.GetByIdAsync(id.Value);
             if (voting == null)
             {
                 return NotFound();
             }
+
             return View(voting);
         }
 
-        // POST: Votings/Edit/5
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
-        // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
+        // POST: Voting/Edit/5
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("VotingId,Description,Remarks,DateTimeStart,DateTimeEnd,IsEnableBlankVote,QuantityVotes,QuantityBlankVotes,CandidateWinId")] Voting voting)
+        public async Task<IActionResult> Edit(Voting voting)
         {
-            if (id != voting.VotingId)
-            {
-                return NotFound();
-            }
-
             if (ModelState.IsValid)
             {
                 try
                 {
-                    _context.Update(voting);
-                    await _context.SaveChangesAsync();
+                    // TODO: Pending to change to: this.User.Identity.Name
+                    voting.User = await this.userHelper.GetUserByEmailAsync("jzuluaga55@gmail.com");
+                    await this.votingRepository.UpdateAsync(voting);
                 }
                 catch (DbUpdateConcurrencyException)
                 {
-                    if (!VotingExists(voting.VotingId))
+                    if (!await this.votingRepository.ExistAsync(voting.Id))
                     {
                         return NotFound();
                     }
@@ -113,6 +107,7 @@ namespace Event.Web.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
+
             return View(voting);
         }
 
@@ -124,8 +119,7 @@ namespace Event.Web.Controllers
                 return NotFound();
             }
 
-            var voting = await _context.Votings
-                .FirstOrDefaultAsync(m => m.VotingId == id);
+            var voting = await this.votingRepository.GetByIdAsync(id.Value);
             if (voting == null)
             {
                 return NotFound();
@@ -139,15 +133,11 @@ namespace Event.Web.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
-            var voting = await _context.Votings.FindAsync(id);
-            _context.Votings.Remove(voting);
-            await _context.SaveChangesAsync();
+            var product = await this.votingRepository.GetByIdAsync(id);
+            await this.votingRepository.DeleteAsync(product);
             return RedirectToAction(nameof(Index));
         }
-
-        private bool VotingExists(int id)
-        {
-            return _context.Votings.Any(e => e.VotingId == id);
-        }
     }
+
+
 }
