@@ -16,7 +16,7 @@
         [HttpGet]
         public IActionResult GetVotings()
         {
-            return this.Ok(this.votingRepository.GetAll());
+            return this.Ok(this.votingRepository.GetAllWithUsers());
         }
     }
 

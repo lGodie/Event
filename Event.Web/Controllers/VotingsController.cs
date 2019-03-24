@@ -1,6 +1,7 @@
 ﻿
 namespace Event.Web.Controllers
 {
+    using System.Linq;
     using System.Threading.Tasks;
     using Data;
     using Data.Entities;
@@ -22,7 +23,7 @@ namespace Event.Web.Controllers
         // GET: Votings
         public IActionResult Index()
         {
-            return View(this.votingRepository.GetAll());
+            return View(this.votingRepository.GetAll().OrderBy(v => v.DateTimeStart));
         }
 
         // GET: Votings/Details/5
