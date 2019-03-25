@@ -1,4 +1,5 @@
-﻿using Event.UIForms.Views;
+﻿using Event.UIForms.ViewModels;
+using Event.UIForms.Views;
 using System;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
@@ -11,6 +12,7 @@ namespace Event.UIForms
         {
             InitializeComponent();
 
+            MainViewModel.GetInstance().Login = new LoginViewModel();
             MainPage = new NavigationPage(new LoginPage());
         }
 

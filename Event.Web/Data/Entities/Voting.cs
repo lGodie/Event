@@ -19,7 +19,7 @@
         [DisplayFormat(DataFormatString = "{0:MM/dd/yyyy}", ApplyFormatInEditMode = true)]
         public DateTime? DateTimeStart { get; set; }
 
-        [Display(Name = "Date start")]
+        [Display(Name = "Date End")]
         [DisplayFormat(DataFormatString = "{0:MM/dd/yyyy}", ApplyFormatInEditMode = true)]
         public DateTime? DateTimeEnd { get; set; }
 

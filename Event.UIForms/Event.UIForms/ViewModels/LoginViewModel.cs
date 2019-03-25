@@ -1,5 +1,6 @@
 ﻿namespace Event.UIForms.ViewModels
 {
+    using Event.UIForms.Views;
     using GalaSoft.MvvmLight.Command;
     using System;
     using System.Windows.Input;
@@ -47,10 +48,13 @@
                 return;
             }
 
-            await Application.Current.MainPage.DisplayAlert(
-                "Ok",
-                "Funciono ",
-                "Accept");
+            //await Application.Current.MainPage.DisplayAlert(
+            //    "Ok",
+            //    "Funciono ",
+            //    "Accept");
+
+            MainViewModel.GetInstance().Votings = new VotingsViewModel();
+            await Application.Current.MainPage.Navigation.PushAsync(new VotingsPage());
 
 
         }
