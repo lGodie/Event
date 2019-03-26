@@ -6,9 +6,11 @@ namespace Event.Web.Controllers
     using Data;
     using Data.Entities;
     using Helpers;
+    using Microsoft.AspNetCore.Authorization;
     using Microsoft.AspNetCore.Mvc;
     using Microsoft.EntityFrameworkCore;
 
+    [Authorize]
     public class VotingsController : Controller
     {
         private readonly IVotingRepository votingRepository;
@@ -56,8 +58,8 @@ namespace Event.Web.Controllers
         {
             if (ModelState.IsValid)
             {
-                // TODO: Pending to change to: this.User.Identity.Name
-                voting.User = await this.userHelper.GetUserByEmailAsync("diegozapata1345z@gmail.com");
+                
+                voting.User = await this.userHelper.GetUserByEmailAsync(this.User.Identity.Name);
                 await this.votingRepository.CreateAsync(voting);
                 return RedirectToAction(nameof(Index));
             }
@@ -91,8 +93,7 @@ namespace Event.Web.Controllers
             {
                 try
                 {
-                    // TODO: Pending to change to: this.User.Identity.Name
-                    voting.User = await this.userHelper.GetUserByEmailAsync("jzuluaga55@gmail.com");
+                    voting.User = await this.userHelper.GetUserByEmailAsync(this.User.Identity.Name);
                     await this.votingRepository.UpdateAsync(voting);
                 }
                 catch (DbUpdateConcurrencyException)
