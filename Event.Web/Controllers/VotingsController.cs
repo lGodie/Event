@@ -1,5 +1,4 @@
-﻿
-namespace Event.Web.Controllers
+﻿namespace Event.Web.Controllers
 {
     using System.Linq;
     using System.Threading.Tasks;
@@ -33,19 +32,20 @@ namespace Event.Web.Controllers
         {
             if (id == null)
             {
-                return NotFound();
+                return new NotFoundViewResult("VotingNotFound");
             }
 
             var votings = await this.votingRepository.GetByIdAsync(id.Value);
             if (votings == null)
             {
-                return NotFound();
+                return new NotFoundViewResult("VotingNotFound");
             }
 
             return View(votings);
         }
 
         // GET: Votings/Create
+        [Authorize(Roles = "Admin")]
         public IActionResult Create()
         {
             return View();
@@ -68,6 +68,7 @@ namespace Event.Web.Controllers
         }
 
         // GET: Products/Edit/5
+        [Authorize(Roles = "Admin")]
         public async Task<IActionResult> Edit(int? id)
         {
             if (id == null)
@@ -114,6 +115,7 @@ namespace Event.Web.Controllers
         }
 
         // GET: Votings/Delete/5
+        [Authorize(Roles = "Admin")]
         public async Task<IActionResult> Delete(int? id)
         {
             if (id == null)
@@ -139,6 +141,12 @@ namespace Event.Web.Controllers
             await this.votingRepository.DeleteAsync(product);
             return RedirectToAction(nameof(Index));
         }
+
+        public IActionResult VotingNotFound()
+        {
+            return this.View();
+        }
+
     }
 
 
