@@ -73,7 +73,7 @@
         {
             if (id == null)
             {
-                return NotFound();
+                return new NotFoundViewResult("VotingNotFound");
             }
 
             var voting = await this.votingRepository.GetByIdAsync(id.Value);
@@ -101,7 +101,7 @@
                 {
                     if (!await this.votingRepository.ExistAsync(voting.Id))
                     {
-                        return NotFound();
+                        return new NotFoundViewResult("VotingNotFound");
                     }
                     else
                     {
@@ -120,13 +120,13 @@
         {
             if (id == null)
             {
-                return NotFound();
+                return new NotFoundViewResult("VotingNotFound");
             }
 
             var voting = await this.votingRepository.GetByIdAsync(id.Value);
             if (voting == null)
             {
-                return NotFound();
+                return new NotFoundViewResult("VotingNotFound");
             }
 
             return View(voting);
