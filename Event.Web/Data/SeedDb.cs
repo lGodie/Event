@@ -1,12 +1,13 @@
 ﻿namespace Event.Web.Data
 {
-    using Event.Web.Data.Entities;
-    using Event.Web.Helpers;
-    using Microsoft.AspNetCore.Identity;
     using System;
+    using System.Collections.Generic;
     using System.Linq;
     using System.Threading.Tasks;
-    
+    using Entities;
+    using Helpers;
+    using Microsoft.AspNetCore.Identity;
+
 
     public class SeedDb
     {
@@ -26,6 +27,23 @@
             await this.userHelper.CheckRoleAsync("Admin");
             await this.userHelper.CheckRoleAsync("Customer");
 
+            if (!this.context.Countries.Any())
+            {
+                var cities = new List<City>();
+                cities.Add(new City { Name = "Medellín" });
+                cities.Add(new City { Name = "Bogotá" });
+                cities.Add(new City { Name = "Calí" });
+
+                this.context.Countries.Add(new Country
+                {
+                    Cities = cities,
+                    Name = "Colombia"
+                });
+
+                await this.context.SaveChangesAsync();
+            }
+
+
 
             var user = await this.userHelper.GetUserByEmailAsync("Diego1345z@gmail.com");
             if (user == null)
@@ -36,7 +54,11 @@
                     LastName = "Zapata",
                     Email = "Diego1345z@gmail.com",
                     UserName = "Diego1345z@gmail.com",
-                    PhoneNumber="31065895656"
+                    PhoneNumber="31065895656",
+                    Address = "Calle Luna Calle Sol",
+                    CityId = this.context.Countries.FirstOrDefault().Cities.FirstOrDefault().Id,
+                    City = this.context.Countries.FirstOrDefault().Cities.FirstOrDefault()
+
                 };
 
                 var result = await this.userHelper.AddUserAsync(user, "123456");

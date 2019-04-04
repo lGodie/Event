@@ -65,7 +65,7 @@ namespace Event.Web
             services.AddTransient<SeedDb>();
             services.AddScoped<IVotingRepository, VotingRepository>();
             services.AddScoped<ICandidateRepository, CandidateRepository>();
-
+            services.AddScoped<ICountryRepository, CountryRepository>();
             services.AddScoped<IUserHelper, UserHelper>();
 
             services.Configure<CookiePolicyOptions>(options =>

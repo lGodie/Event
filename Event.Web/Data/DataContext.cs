@@ -8,6 +8,7 @@
     public class DataContext : IdentityDbContext<User>
     {
         public DbSet<Voting> Votings { get; set; }
+        
         public DbSet<Candidate> Candidates { get; set; }
 
         public DbSet<Country> Countries { get; set; }

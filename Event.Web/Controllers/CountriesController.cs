@@ -3,7 +3,6 @@
     using System.Threading.Tasks;
     using Data;
     using Data.Entities;
-    using Event.Web.Data.Repositories;
     using Microsoft.AspNetCore.Authorization;
     using Microsoft.AspNetCore.Mvc;
     using Models;
@@ -175,13 +174,9 @@
                 return NotFound();
             }
 
-            try
-            {
-                await this.countryRepository.DeleteAsync(country);
-
-            }
-            catch { }
+            await this.countryRepository.DeleteAsync(country);
             return RedirectToAction(nameof(Index));
         }
+
     }
 }

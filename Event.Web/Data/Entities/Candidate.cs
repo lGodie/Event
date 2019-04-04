@@ -16,7 +16,8 @@
         [Display(Name = "Image")]
         public string ImageUrl { get; set; }
 
-        public User User { get; set; }
+        
+    
 
     }
 }

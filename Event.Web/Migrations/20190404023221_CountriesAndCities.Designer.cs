@@ -4,14 +4,16 @@ using Event.Web.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace Event.Web.Migrations
 {
     [DbContext(typeof(DataContext))]
-    partial class DataContextModelSnapshot : ModelSnapshot
+    [Migration("20190404023221_CountriesAndCities")]
+    partial class CountriesAndCities
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -82,6 +84,8 @@ namespace Event.Web.Migrations
                     b.Property<string>("Address")
                         .HasMaxLength(100);
 
+                    b.Property<int>("CandidateId");
+
                     b.Property<int>("CityId");
 
                     b.Property<string>("ConcurrencyStamp")
@@ -122,6 +126,8 @@ namespace Event.Web.Migrations
                         .HasMaxLength(256);
 
                     b.HasKey("Id");
+
+                    b.HasIndex("CandidateId");
 
                     b.HasIndex("CityId");
 
@@ -288,6 +294,11 @@ namespace Event.Web.Migrations
 
             modelBuilder.Entity("Event.Web.Data.Entities.User", b =>
                 {
+                    b.HasOne("Event.Web.Data.Entities.Candidate", "Candidate")
+                        .WithMany()
+                        .HasForeignKey("CandidateId")
+                        .OnDelete(DeleteBehavior.Restrict);
+
                     b.HasOne("Event.Web.Data.Entities.City", "City")
                         .WithMany()
                         .HasForeignKey("CityId")
