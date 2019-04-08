@@ -11,7 +11,6 @@
 
         public string Proposal { get; set; }
 
-        public int QuantityVotes { get; set; }
 
         [Display(Name = "Image")]
         public string ImageUrl { get; set; }

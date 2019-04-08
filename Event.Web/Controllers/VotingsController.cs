@@ -4,6 +4,7 @@
     using System.Threading.Tasks;
     using Data;
     using Data.Entities;
+    using Event.Web.Models;
     using Helpers;
     using Microsoft.AspNetCore.Authorization;
     using Microsoft.AspNetCore.Mvc;
@@ -14,11 +15,15 @@
     {
         private readonly IVotingRepository votingRepository;
         private readonly IUserHelper userHelper;
+        private readonly ICandidateRepository candidateRepository;
 
-        public VotingsController(IVotingRepository votingRepository, IUserHelper userHelper)
+        public VotingsController(IVotingRepository votingRepository,
+            IUserHelper userHelper,
+            ICandidateRepository candidateRepository)
         {
             this.votingRepository = votingRepository;
             this.userHelper = userHelper;
+            this.candidateRepository = candidateRepository;
         }
 
         // GET: Votings
@@ -35,7 +40,7 @@
                 return new NotFoundViewResult("VotingNotFound");
             }
 
-            var votings = await this.votingRepository.GetByIdAsync(id.Value);
+            var votings = await this.candidateRepository.GetVotingWithCandidatesAsync(id.Value);
             if (votings == null)
             {
                 return new NotFoundViewResult("VotingNotFound");
@@ -58,7 +63,7 @@
         {
             if (ModelState.IsValid)
             {
-                
+
                 voting.User = await this.userHelper.GetUserByEmailAsync(this.User.Identity.Name);
                 await this.votingRepository.CreateAsync(voting);
                 return RedirectToAction(nameof(Index));
@@ -147,7 +152,87 @@
             return this.View();
         }
 
+        public async Task<IActionResult> DeleteCandidate(int? id)
+        {
+            if (id == null)
+            {
+                return NotFound();
+            }
+
+            var candidate = await this.candidateRepository.GetCandidateAsync(id.Value);
+            if (candidate == null)
+            {
+                return NotFound();
+            }
+
+            var votingId = await this.candidateRepository.DeleteCandidateAsync(candidate);
+            return this.RedirectToAction($"Details/{votingId}");
+        }
+
+        public async Task<IActionResult> Editcandidate(int? id)
+        {
+            if (id == null)
+            {
+                return NotFound();
+            }
+
+            var candidate = await this.candidateRepository.GetCandidateAsync(id.Value);
+            if (candidate == null)
+            {
+                return NotFound();
+            }
+
+            return View(candidate);
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> Editcandidate(Candidate candidate)
+        {
+            if (this.ModelState.IsValid)
+            {
+                var votingId = await this.candidateRepository.UpdateCandidateAsync(candidate);
+                if (votingId != 0)
+                {
+                    return this.RedirectToAction($"Details/{votingId}");
+                }
+            }
+
+            return this.View(candidate);
+        }
+
+        public async Task<IActionResult> AddCandidate(int? id)
+        {
+            if (id == null)
+            {
+                return NotFound();
+            }
+
+            var voting = await this.candidateRepository.GetByIdAsync(id.Value);
+            if (voting == null)
+            {
+                return NotFound();
+            }
+
+            var model = new CandidateViewModel { VotingId = voting.Id };
+            return View(model);
+        }
+
+
+        [HttpPost]
+        public async Task<IActionResult> AddCandidate(CandidateViewModel model)
+        {
+            if (this.ModelState.IsValid)
+            {
+                await this.candidateRepository.AddCandidateAsync(model);
+                return this.RedirectToAction($"Details/{model.VotingId}");
+            }
+
+            return this.View(model);
+        }
+
+        
     }
 
 
 }
+

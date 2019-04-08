@@ -91,7 +91,7 @@
             {
                 Description = Description,
                 Remarks = Remarks,
-                IsEnableBlankVote = true,
+                //IsEnableBlankVote = true,
                 User = user
             });
         }

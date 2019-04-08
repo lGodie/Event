@@ -1,6 +1,7 @@
 ﻿namespace Event.Web.Data.Entities
 {
     using System;
+    using System.Collections.Generic;
     using System.ComponentModel.DataAnnotations;
     public class Voting : IEntity
     {
@@ -23,18 +24,18 @@
         [DisplayFormat(DataFormatString = "{0:MM/dd/yyyy}", ApplyFormatInEditMode = true)]
         public DateTime? DateTimeEnd { get; set; }
 
-        [Required(ErrorMessage = "The field {0} is required")]
-        [Display(Name = "Is enable blank vote?")]
-        public bool IsEnableBlankVote { get; set; }
-
+       
         [Display(Name = "Quantity votes")]
         public int QuantityVotes { get; set; }
 
-        [Display(Name = "Quantity blank votes")]
-        public int QuantityBlankVotes { get; set; }
+        [Display(Name = "# Candidates")]
+        public int NumberCandidates { get { return this.Candidates == null ? 0 : this.Candidates.Count; } }
+
 
         [Display(Name = "Winner")]
         public int CandidateWinId { get; set; }
+
+        public ICollection<Candidate> Candidates { get; set; }
 
         public User User { get; set; }
 
