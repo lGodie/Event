@@ -1,5 +1,6 @@
 ﻿namespace Event.Web.Helpers
 {
+    using System.Collections.Generic;
     using System.Threading.Tasks;
     using Data.Entities;
     using Event.Web.Models;
@@ -27,6 +28,13 @@
 
         Task<bool> IsUserInRoleAsync(User user, string roleName);
 
+        Task<List<User>> GetAllUsersAsync();
+
+        Task RemoveUserFromRoleAsync(User user, string roleName);
+
+        Task DeleteUserAsync(User user);
+
+        Task<User> GetUserByIdAsync(string userId);
     }
 
 }

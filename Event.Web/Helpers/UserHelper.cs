@@ -88,6 +88,30 @@
                 false);
         }
 
+        public async Task<List<User>> GetAllUsersAsync()
+        {
+            return await this.userManager.Users
+                .Include(u => u.City)
+                .OrderBy(u => u.FirstName)
+                .ThenBy(u => u.LastName)
+                .ToListAsync();
+        }
+
+        public async Task RemoveUserFromRoleAsync(User user, string roleName)
+        {
+            await this.userManager.RemoveFromRoleAsync(user, roleName);
+        }
+
+        public async Task DeleteUserAsync(User user)
+        {
+            await this.userManager.DeleteAsync(user);
+        }
+
+        public async Task<User> GetUserByIdAsync(string userId)
+        {
+            return await this.userManager.FindByIdAsync(userId);
+        }
+
     }
 
 }

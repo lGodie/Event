@@ -54,8 +54,8 @@
                     LastName = "Zapata",
                     Email = "Diego1345z@gmail.com",
                     UserName = "Diego1345z@gmail.com",
-                    PhoneNumber = "31065895656",
-                    Address = "Calle Luna Calle Sol",
+                    PhoneNumber = "31065856656",
+                    Address = "Calle 45 Manrique",
                     CityId = this.context.Countries.FirstOrDefault().Cities.FirstOrDefault().Id,
                     City = this.context.Countries.FirstOrDefault().Cities.FirstOrDefault()
 
