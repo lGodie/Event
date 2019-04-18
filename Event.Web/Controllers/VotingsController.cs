@@ -200,6 +200,9 @@
             return this.View(candidate);
         }
 
+
+
+
         public async Task<IActionResult> AddCandidate(int? id)
         {
             if (id == null)
