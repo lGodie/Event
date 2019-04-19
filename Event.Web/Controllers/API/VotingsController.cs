@@ -15,10 +15,12 @@
     public class VotingsController : Controller
     {
         private readonly IVotingRepository votingRepository;
+        private readonly IUserHelper userHelper;
 
-        public VotingsController(IVotingRepository votingRepository)
+        public VotingsController(IVotingRepository votingRepository, IUserHelper userHelper)
         {
             this.votingRepository = votingRepository;
+            this.userHelper = userHelper;
         }
 
         [HttpGet]
@@ -26,6 +28,8 @@
         {
             return this.Ok(this.votingRepository.GetAllWithUsers());
         }
+
+        
     }
 
 }

@@ -14,4 +14,8 @@
     <Folder Include="Migrations\" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\Event.Common\Event.Common.csproj" />
+  </ItemGroup>
+
 </Project>
