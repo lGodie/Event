@@ -14,10 +14,10 @@
         public string Remarks { get; set; }
 
         [JsonProperty("dateTimeStart")]
-        public object DateTimeStart { get; set; }
+        public DateTime? DateTimeStart { get; set; }
 
         [JsonProperty("dateTimeEnd")]
-        public object DateTimeEnd { get; set; }
+        public DateTime? DateTimeEnd { get; set; }
 
         [JsonProperty("isEnableBlankVote")]
         public bool IsEnableBlankVote { get; set; }

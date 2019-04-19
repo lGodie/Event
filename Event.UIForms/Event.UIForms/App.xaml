@@ -9,6 +9,10 @@
             <!-- Locator -->
             <infra:InstanceLocator x:Key="Locator"/>
 
+            <!-- Parameters -->
+            <x:String x:Key="UrlAPI">https://eventweb20190418042242.azurewebsites.net</x:String>
+
+
         </ResourceDictionary>
     </Application.Resources>
 </Application>

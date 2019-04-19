@@ -10,9 +10,10 @@
             <StackLayout
                 Padding="8">
                 <Image
-                    HeightRequest="150"
-                    Source="shop">
+                	HeightRequest="150"
+                	Source="Voting">
                 </Image>
+                
                 <Label
                     Text="Email">
                 </Label>

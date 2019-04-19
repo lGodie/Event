@@ -31,10 +31,13 @@
         private async void LoadVotings()
         {
             this.IsRefreshing = true;
+            var url = Application.Current.Resources["UrlAPI"].ToString();
             var response = await this.apiService.GetListAsync<Voting>(
-                "https://eventwebdiegoz.azurewebsites.net",
+                url,
                 "/api",
-                "/Votings");
+                "/Votings",
+                "bearer",
+                MainViewModel.GetInstance().Token.Token);
 
             this.IsRefreshing = false;
 
