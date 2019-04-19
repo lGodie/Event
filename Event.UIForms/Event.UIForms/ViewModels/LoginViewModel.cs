@@ -30,6 +30,16 @@
 
         public string Password { get; set; }
 
+
+        public ICommand RegisterCommand => new RelayCommand(this.Register);
+
+        private async void Register()
+        {
+            MainViewModel.GetInstance().Register = new RegisterViewModel();
+            await Application.Current.MainPage.Navigation.PushAsync(new RegisterPage());
+
+        }
+
         public ICommand LoginCommand => new RelayCommand(Login);
 
         public LoginViewModel()

@@ -7,7 +7,7 @@ namespace Event.UIForms.ViewModels
 {
     public class MainViewModel
     {
-
+        public RegisterViewModel Register { get; set; }
         public ObservableCollection<MenuItemViewModel> Menus { get; set; }
         private static MainViewModel instance;
         public LoginViewModel Login { get; set; }
