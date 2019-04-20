@@ -13,7 +13,6 @@
                 	HeightRequest="150"
                 	Source="Voting">
                 </Image>
-
                 <Label
                     Text="Email">
                 </Label>
@@ -30,6 +29,27 @@
                     Placeholder="Enter your password..."
                     Text="{Binding Password}">
                 </Entry>
+                <StackLayout
+	             HorizontalOptions="Center"
+	             Orientation="Horizontal">
+                    <Label
+    	         Text="Rememberme in this device"
+    	         VerticalOptions="Center">
+                    </Label>
+                    <Switch
+    	         IsToggled="{Binding IsRemember}">
+                    </Switch>
+                </StackLayout>
+
+                <Label
+	              HorizontalOptions="Center"
+	              Text="Forgot my password"
+	              TextColor="Navy">
+                    <Label.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding RememberPasswordCommand }"/>
+                    </Label.GestureRecognizers>
+                </Label>
+
                 <ActivityIndicator
                     IsRunning="{Binding IsRunning}"
                     VerticalOptions="CenterAndExpand">
@@ -57,7 +77,6 @@
     	             TextColor="White">
                     </Button>
                 </StackLayout>
-
             </StackLayout>
         </ScrollView>
     </ContentPage.Content>

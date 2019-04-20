@@ -5,11 +5,28 @@ using System.Linq;
 
 namespace Event.UIForms.ViewModels
 {
-    public class MainViewModel
+    public class MainViewModel : BaseViewModel
     {
+        private static MainViewModel instance;
+
+        private User user;
+
+        public User User
+        {
+            get => this.user;
+            set => this.SetValue(ref this.user, value);
+        }
+
+        public ChangePasswordViewModel ChangePassword { get; set; }
+        public string UserEmail { get; set; }
+
+        public ProfileViewModel Profile { get; set; }
+        public string UserPassword { get; set; }
+       
+        public RememberPasswordViewModel RememberPassword { get; set; }
         public RegisterViewModel Register { get; set; }
         public ObservableCollection<MenuItemViewModel> Menus { get; set; }
-        private static MainViewModel instance;
+        
         public LoginViewModel Login { get; set; }
 
         public TokenResponse Token { get; set; }
@@ -31,7 +48,12 @@ namespace Event.UIForms.ViewModels
             PageName = "AboutPage",
             Title = "About"
         },
-
+        new Menu
+        {
+            Icon = "ic_person_pin",
+            PageName = "ProfilePage",
+            Title = "Modify User"
+        },
         new Menu
         {
             Icon = "ic_phonelink_setup",

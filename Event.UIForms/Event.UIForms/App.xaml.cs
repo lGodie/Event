@@ -1,5 +1,8 @@
-﻿using Event.UIForms.ViewModels;
+﻿using Event.Common.Helpers;
+using Event.Common.Models;
+using Event.UIForms.ViewModels;
 using Event.UIForms.Views;
+using Newtonsoft.Json;
 using System;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
@@ -15,8 +18,26 @@ namespace Event.UIForms
         {
             InitializeComponent();
 
+            if (Settings.IsRemember)
+            {
+                var token = JsonConvert.DeserializeObject<TokenResponse>(Settings.Token);
+                var user = JsonConvert.DeserializeObject<User>(Settings.User);
+
+                if (token.Expiration > DateTime.Now)
+                {
+                    var mainViewModel = MainViewModel.GetInstance();
+                    mainViewModel.User = user;
+                    mainViewModel.Token = token;
+                    mainViewModel.UserEmail = Settings.UserEmail;
+                    mainViewModel.UserPassword = Settings.UserPassword;
+                    mainViewModel.Votings = new VotingsViewModel();
+                    this.MainPage = new MasterPage();
+                    return;
+                }
+            }
+
             MainViewModel.GetInstance().Login = new LoginViewModel();
-            MainPage = new NavigationPage(new LoginPage());
+            this.MainPage = new NavigationPage(new LoginPage());
         }
 
         protected override void OnStart()
