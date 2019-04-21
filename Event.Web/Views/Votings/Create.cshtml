@@ -12,7 +12,7 @@
     <div class="col-md-4">
         <form asp-action="Create">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            
+
             <div class="form-group">
                 <label asp-for="Description" class="control-label"></label>
                 <input asp-for="Description" class="form-control" />
@@ -23,24 +23,37 @@
                 <textarea asp-for="Remarks" class="form-control"></textarea>
                 <span asp-validation-for="Remarks" class="text-danger"></span>
             </div>
+
             <div class="form-group">
                 <label asp-for="DateTimeStart" class="control-label"></label>
-                <input asp-for="DateTimeStart" class="form-control" />
+                <div class="input-group date" data-provide="datepicker">
+                    <input asp-for="DateTimeStart" class="form-control" />
+                    <span class="input-group-addon">
+                        <span class="glyphicon glyphicon-calendar"></span>
+                    </span>
+                </div>
                 <span asp-validation-for="DateTimeStart" class="text-danger"></span>
             </div>
+
             <div class="form-group">
                 <label asp-for="DateTimeEnd" class="control-label"></label>
-                <input asp-for="DateTimeEnd" class="form-control" />
+                <div class="input-group date" data-provide="datepicker">
+                    <input asp-for="DateTimeEnd" class="form-control" />
+                    <span class="input-group-addon">
+                        <span class="glyphicon glyphicon-calendar"></span>
+                    </span>
+                </div>
                 <span asp-validation-for="DateTimeEnd" class="text-danger"></span>
             </div>
+
             @*<div class="form-group">
-                <div class="checkbox">
-                    <label>
-                        <input asp-for="IsEnableBlankVote" /> @Html.DisplayNameFor(model => model.IsEnableBlankVote)
-                    </label>
-                </div>
-            </div>*@
-           
+            <div class="checkbox">
+                <label>
+                    <input asp-for="IsEnableBlankVote" /> @Html.DisplayNameFor(model => model.IsEnableBlankVote)
+                </label>
+            </div>
+        </div>*@
+
             <div class="form-group">
                 <input type="submit" value="Create" class="btn btn-primary" />
                 <a asp-action="Index" class="btn btn-success">Back to List</a>

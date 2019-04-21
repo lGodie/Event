@@ -4,14 +4,16 @@
     using Event.Common.Services;
     using System.Collections.Generic;
     using System.Collections.ObjectModel;
+    using System.Linq;
     using Xamarin.Forms;
 
     public class VotingsViewModel : BaseViewModel
     {
         private readonly ApiService apiService;
-        private ObservableCollection<Voting> votings;
+        //private ObservableCollection<Voting> votings;
+        private ObservableCollection<VotingItemViewModel> votings;
         private bool isRefreshing;
-        public ObservableCollection<Voting> Votings
+        public ObservableCollection<VotingItemViewModel> Votings
         {
             get => this.votings;
             set => this.SetValue(ref this.votings, value);
@@ -51,7 +53,18 @@
             }
 
             var myVotings = (List<Voting>)response.Result;
-            this.Votings = new ObservableCollection<Voting>(myVotings);
+            var mapsVotes = myVotings.Select(vote => new VotingItemViewModel
+            {
+                Id = vote.Id,
+                Description = vote.Description,
+                Remarks = vote.Remarks,
+                DateTimeStart = vote.DateTimeStart,
+                DateTimeEnd = vote.DateTimeEnd,
+                User = vote.User,
+                Candidates = vote.Candidates
+            }
+            );
+            this.Votings = new ObservableCollection<VotingItemViewModel>(mapsVotes);
         }
     }
 }

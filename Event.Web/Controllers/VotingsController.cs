@@ -10,7 +10,7 @@
     using Microsoft.AspNetCore.Mvc;
     using Microsoft.EntityFrameworkCore;
 
-    [Authorize]
+    
     public class VotingsController : Controller
     {
         private readonly IVotingRepository votingRepository;
@@ -26,6 +26,7 @@
             this.candidateRepository = candidateRepository;
         }
 
+        
         // GET: Votings
         public IActionResult Index()
         {
@@ -56,6 +57,7 @@
             return View();
         }
 
+        
         // POST: Voting/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
@@ -152,6 +154,7 @@
             return this.View();
         }
 
+        [Authorize(Roles = "Admin")]
         public async Task<IActionResult> DeleteCandidate(int? id)
         {
             if (id == null)
@@ -169,6 +172,7 @@
             return this.RedirectToAction($"Details/{votingId}");
         }
 
+        [Authorize(Roles = "Admin")]
         public async Task<IActionResult> Editcandidate(int? id)
         {
             if (id == null)
@@ -202,7 +206,7 @@
 
 
 
-
+        [Authorize(Roles = "Admin")]
         public async Task<IActionResult> AddCandidate(int? id)
         {
             if (id == null)
@@ -233,7 +237,43 @@
             return this.View(model);
         }
 
-        
+        public ActionResult VotingResult()
+        {
+            return View(this.votingRepository.GetAll().OrderBy(v => v.DateTimeStart));
+            
+        }
+
+        // GET: Votings/Details/5
+        [Authorize(Roles = "Admin")]
+        public ActionResult ResultDetails(int? id)
+        {
+            if (id == null)
+            {
+                return new NotFoundViewResult("Detail NotFound");
+            }
+            var voting = this.votingRepository.GetByIdAsync(id.Value);
+            if (voting == null)
+            {
+                return new NotFoundViewResult("Detail NotFound");
+            }
+
+            //var resultDetails = new ResultDetails
+            //{
+            //    Candidates = voting.Candidates.ToList(),
+            //    CandidateWinId = voting.CandidateWinId,
+            //    DateTimeStart = voting.DateTimeStart,
+            //    DateTimeEnd = voting.DateTimeEnd,
+            //    Description = voting.Description,
+            //    QuantityVotes = voting.QuantityVotes,
+            //    Remarks = voting.Remarks,
+                
+                
+            //    VotingId = voting.Id
+            //};
+
+            return View();
+        }
+
     }
 
 

@@ -1,6 +1,7 @@
 ﻿namespace Event.Common.Models
 {
     using System;
+    using System.Collections.Generic;
     using Newtonsoft.Json;
     public class Voting
     {
@@ -38,5 +39,8 @@
         {
             return $"{this.Description} {this.Remarks}";
         }
+
+        [JsonProperty("candidates")]
+        public List<Candidate> Candidates { get; set; }
     }
 }

@@ -9,6 +9,8 @@ namespace Event.UIForms.ViewModels
     {
         private static MainViewModel instance;
 
+        public CandidateViewModel SelectedVoting { get; set; }
+
         private User user;
 
         public User User

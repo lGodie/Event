@@ -1,0 +1,62 @@
+﻿@model IEnumerable<Event.Web.Data.Entities.Voting>
+
+@{
+    ViewData["Title"] = "VotingResult";
+}
+
+<h2>Voting Result</h2>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Description)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Remarks)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DateTimeStart)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DateTimeEnd)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.QuantityVotes)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CandidateWinId)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Description)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Remarks)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.DateTimeStart)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.DateTimeEnd)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.QuantityVotes)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.CandidateWinId)
+                </td>
+                <td>
+                    <a asp-action="Details" asp-route-id="@item.Id" class="btn btn-info">Details</a>
+
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

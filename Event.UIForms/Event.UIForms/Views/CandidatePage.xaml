@@ -1,30 +1,27 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+<ContentPage  xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="Event.UIForms.Views.VotingsPage"
+             x:Class="Event.UIForms.Views.CandidatePage"
              BindingContext="{Binding Main, Source={StaticResource Locator}}"
-             Title="Voting EVents">
+             Title="Vote for Candidate">
     <ContentPage.Content>
         <StackLayout
-            BindingContext="{Binding Votings}"
+            BindingContext="{Binding Candidate}"
             Padding="5">
             <ListView
                 HasUnevenRows="True"
                 IsRefreshing="{Binding IsRefreshing}"
                 IsPullToRefreshEnabled="True"
-                ItemsSource="{Binding Votings}"
+                ItemsSource="{Binding Candidate}"
                 RefreshCommand="{Binding RefreshCommand}">
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <ViewCell>
                             <Grid>
-                                <Grid.GestureRecognizers>
-                                    <TapGestureRecognizer Command="{Binding SelectVoteCommand}"/>
-                                </Grid.GestureRecognizers>
                                 <Grid.ColumnDefinitions>
                                     <ColumnDefinition Width="Auto"/>
                                     <ColumnDefinition Width="2*"/>
-                                    
+                                    <ColumnDefinition Width="*"/>
                                 </Grid.ColumnDefinitions>
                                 <StackLayout
                                     Grid.Column="1"
@@ -39,7 +36,7 @@
                                     <Label
                                     Grid.Column="3"
                                     
-                                    Text="{Binding Remarks}"
+                                    Text="{Binding Proposal}"
                                     HorizontalOptions ="Center">
                                     </Label>
                                 </StackLayout>
@@ -49,6 +46,5 @@
                 </ListView.ItemTemplate>
             </ListView>
         </StackLayout>
-
     </ContentPage.Content>
 </ContentPage>
