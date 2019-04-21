@@ -3,6 +3,7 @@
     using Event.Common.Helpers;
     using Event.Common.Models;
     using Event.Common.Services;
+    using Event.UIForms.Helpers;
     using Event.UIForms.Views;
     using GalaSoft.MvvmLight.Command;
     using Newtonsoft.Json;
@@ -61,18 +62,18 @@
             if (string.IsNullOrEmpty(this.Email))
             {
                 await Application.Current.MainPage.DisplayAlert(
-                    "Error",
-                    "You must enter an email.",
-                    "Accept");
+                   Languages.Error,
+                   Languages.EmailError,
+                   Languages.Accept);
                 return;
             }
 
             if (string.IsNullOrEmpty(this.Password))
             {
                 await Application.Current.MainPage.DisplayAlert(
-                    "Error",
-                    "You must enter a password.",
-                    "Accept");
+                   Languages.Error,
+                   Languages.PasswordError,
+                   Languages.Accept);
                 return;
             }
 
@@ -98,9 +99,9 @@
             if (!response.IsSuccess)
             {
                 await Application.Current.MainPage.DisplayAlert(
-                    "Error",
-                    "Email or password incorrect.",
-                    "Accept");
+                   Languages.Error,
+                   Languages.LoginError,
+                   Languages.Accept);
                 return;
             }
 

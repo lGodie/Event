@@ -1,9 +1,10 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:i18n="clr-namespace:Event.UIForms.Helpers"
              x:Class="Event.UIForms.Views.LoginPage"
              BindingContext="{Binding Main, Source={StaticResource Locator}}"
-             Title="Login">
+             Title="{i18n:Translate Login}">
     <ContentPage.Content>
         <ScrollView
             BindingContext="{Binding Login}">
@@ -14,11 +15,11 @@
                 	Source="Voting">
                 </Image>
                 <Label
-                    Text="Email">
+                    Text="{i18n:Translate Email}">
                 </Label>
                 <Entry
                     Keyboard="Email"
-                    Placeholder="Enter your email..."
+                    Placeholder="{i18n:Translate EmailPlaceHolder}"
                     Text="{Binding Email}">
                 </Entry>
                 <Label
@@ -26,14 +27,14 @@
                 </Label>
                 <Entry
                     IsPassword="True"
-                    Placeholder="Enter your password..."
+                    Placeholder="{i18n:Translate PasswordPlaceHolder}"
                     Text="{Binding Password}">
                 </Entry>
                 <StackLayout
 	             HorizontalOptions="Center"
 	             Orientation="Horizontal">
                     <Label
-    	         Text="Rememberme in this device"
+    	         Text="{i18n:Translate Rememberme}"
     	         VerticalOptions="Center">
                     </Label>
                     <Switch
@@ -63,7 +64,7 @@
     	            HeightRequest="46"
     	            HorizontalOptions="FillAndExpand"
     	            IsEnabled="{Binding IsEnabled}"
-    	            Text="Login"
+    	            Text="{i18n:Translate Login}"
     	            TextColor="White">
                     </Button>
                     <Button
