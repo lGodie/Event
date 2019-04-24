@@ -82,51 +82,99 @@
                     <Label
                     	Grid.Column="0"
                     	Grid.Row="5"
-                    	Text="Address"
+                    	Text="Occupation"
                     	VerticalOptions="Center">
                     </Label>
-                    <Entry
-                    	Grid.Column="1"
+                    <Picker 
+                        Grid.Column="1"
                     	Grid.Row="5"
-                    	Keyboard="Email"
-                    	Placeholder="Enter your address..."
-                    	Text="{Binding Address}">
-                    </Entry>
+                        x:Name="picker1"
+                            Title="Select Occupation"
+                            TextColor="Black">
+                        <Picker.Items>
+                            <x:String>Student</x:String>
+                            <x:String>Law</x:String>
+                            <x:String>Doctor</x:String>
+                            <x:String>System engineer</x:String>
+                            <x:String>athlete</x:String>
+                            <x:String>production technology</x:String>
+                        </Picker.Items>
+                    </Picker>
                     <Label
                     	Grid.Column="0"
                     	Grid.Row="6"
+                    	Text="Stratum"
+                    	VerticalOptions="Center">
+                    </Label>
+                    <Picker 
+                        Grid.Column="1"
+                    	Grid.Row="6"
+                        x:Name="picker2"
+                            Title="Select Stratum"
+                            TextColor="Black">
+                        <Picker.Items>
+                            <x:String>1</x:String>
+                            <x:String>2</x:String>
+                            <x:String>3</x:String>
+                            <x:String>4</x:String>
+                            <x:String>5</x:String>
+                            <x:String>6</x:String>
+                        </Picker.Items>
+                    </Picker>
+                    <Label
+                    	Grid.Column="0"
+                    	Grid.Row="7"
+                    	Text="Gender"
+                    	VerticalOptions="Center">
+                    </Label>
+                    <Picker 
+                        Grid.Column="1"
+                    	Grid.Row="7"
+                        x:Name="picker3"
+                            Title="Select Gender"
+                            TextColor="Black">
+                        <Picker.Items>
+                            <x:String>male</x:String>
+                            <x:String>female</x:String>
+                            <x:String>other</x:String>
+                        </Picker.Items>
+                    </Picker>
+                    <Label
+                    	Grid.Column="0"
+                    	Grid.Row="8"
                     	Text="Phone"
                     	VerticalOptions="Center">
                     </Label>
+                    
                     <Entry
                     	Grid.Column="1"
-                    	Grid.Row="6"
+                    	Grid.Row="8"
                     	Keyboard="Telephone"
                     	Placeholder="Enter your phone number..."
                     	Text="{Binding Phone}">
                     </Entry>
                     <Label
                     	Grid.Column="0"
-                    	Grid.Row="7"
+                    	Grid.Row="9"
                     	Text="Password"
                     	VerticalOptions="Center">
                     </Label>
                     <Entry
                     	Grid.Column="1"
-                    	Grid.Row="7"
+                    	Grid.Row="9"
                     	IsPassword="True"
                     	Placeholder="Enter your password..."
                     	Text="{Binding Password}">
                     </Entry>
                     <Label
                     	Grid.Column="0"
-                    	Grid.Row="8"
+                    	Grid.Row="10"
                     	Text="Password confirm"
                     	VerticalOptions="Center">
                     </Label>
                     <Entry
                     	Grid.Column="1"
-                    	Grid.Row="8"
+                    	Grid.Row="10"
                     	IsPassword="True"
                     	Placeholder="Enter your password confirm..."
                     	Text="{Binding Confirm}">

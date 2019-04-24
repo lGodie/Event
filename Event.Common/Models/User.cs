@@ -60,6 +60,16 @@
         [JsonProperty("cityId")]
         public int CityId { get; set; }
 
+        [JsonProperty("occupation")]
+        public string Occupation { get; set; }
+
+        [JsonProperty("stratum")]
+        public string Stratum { get; set; }
+
+        [JsonProperty("Gender")]
+        public string Gender { get; set; }
+
+
         [JsonProperty("address")]
         public string Address { get; set; }
         public string FullName { get { return $"{this.FirstName} {this.LastName}"; } }

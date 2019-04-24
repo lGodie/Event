@@ -2,7 +2,7 @@
 {
     using System;
     using Newtonsoft.Json;
-    public class Candidate
+    public partial class Candidate
     {
         [JsonProperty("id")]
         public long Id { get; set; }
@@ -15,6 +15,11 @@
 
         [JsonProperty("imageUrl")]
         public object ImageUrl { get; set; }
+
+        //public override string ToString()
+        //{
+        //    return $"{this.Name} {this.Proposal}";
+        //}
 
     }
 }

@@ -54,6 +54,8 @@
             }
         }
 
+        
+
         public async Task<Response> GetListAsync<T>(
             string urlBase,
             string servicePrefix,
@@ -67,6 +69,7 @@
                 {
                     BaseAddress = new Uri(urlBase),
                 };
+
 
                 client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue(tokenType, accessToken);
 
@@ -471,6 +474,53 @@
                 };
             }
         }
+
+
+        public async Task<Response> GetList<T>(
+            string urlBase, 
+            string servicePrefix, 
+            string controller,
+            int id, 
+            string tokenType,
+            string accessToken)
+        {
+            try
+            {
+
+                var client = new HttpClient
+                {
+                    BaseAddress = new Uri(urlBase),
+                };
+                client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue(tokenType, accessToken);
+                var url = $"{servicePrefix}{controller}/{id}";
+                var response = await client.GetAsync(url);
+                var Result = await response.Content.ReadAsStringAsync();
+                if (!response.IsSuccessStatusCode)
+                {
+                    return new Response
+                    {
+                        IsSuccess = false,
+                        Message = Result,
+                    };
+                }
+
+                var list = JsonConvert.DeserializeObject<List<T>>(Result);
+                return new Response
+                {
+                    IsSuccess = true,
+                    Result = list,
+                };
+            }
+            catch (Exception ex)
+            {
+                return new Response
+                {
+                    IsSuccess = false,
+                    Message = ex.Message,
+                };
+            }
+        }
+
     }
 
 }

@@ -37,7 +37,7 @@
 
         public override string ToString()
         {
-            return $"{this.Description} {this.Remarks}";
+            return $"{this.Description} {this.Remarks}{this.Candidates}";
         }
 
         [JsonProperty("candidates")]

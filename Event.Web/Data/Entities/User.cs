@@ -32,6 +32,14 @@
         [Display(Name = "Is Admin?")]
         public bool IsAdmin { get; set; }
 
+        public string Occupation { get; set; }
+
+        public string Stratum { get; set; }
+
+       public string Gender { get; set; }
+
+      
+
 
     }
 

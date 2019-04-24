@@ -10,7 +10,7 @@
             <infra:InstanceLocator x:Key="Locator"/>
 
             <!-- Parameters -->
-            <x:String x:Key="UrlAPI">https://eventweb2019041903y8uytuj2717.azurewebsites.net</x:String>
+            <x:String x:Key="UrlAPI">https://diegozapataeventweb.azurewebsites.net</x:String>
 
 
         </ResourceDictionary>

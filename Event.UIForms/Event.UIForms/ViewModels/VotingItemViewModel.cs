@@ -9,18 +9,15 @@
 
     public class VotingItemViewModel : Voting
     {
+
         public ICommand SelectVoteCommand => new RelayCommand(this.SelectVote);
         private async void SelectVote()
         {
-
-            MainViewModel.GetInstance().SelectedVoting = new CandidateViewModel(this);
-            await App.Navigator.PushAsync(new CandidatePage());
-
             //DateTime now = DateTime.Now;
             //if (now >= this.DateTimeStart && now <= this.DateTimeEnd)
             //{
-            //    MainViewModel.GetInstance().SelectedVoting = new CandidateViewModel();
-            //    await App.Navigator.PushAsync(new CandidatePage());
+                MainViewModel.GetInstance().Candidates = new CandidateViewModel(this);
+                await App.Navigator.PushAsync(new CandidatePage());
             //}
             //else
             //{
@@ -34,3 +31,28 @@
 
     }
 }
+
+//private async void GotoCandidate()
+//{
+
+//    MainViewModel.GetInstance().Candidates = new CandidateViewModel(this);
+//    await App.Navigator.PushAsync(new CandidatePage());
+
+//DateTime now = DateTime.Now;
+//if (now >= this.DateTimeStart && now <= this.DateTimeEnd)
+//{
+//    MainViewModel.GetInstance().SelectedVoting = new CandidateViewModel();
+//    await App.Navigator.PushAsync(new CandidatePage());
+//}
+//else
+//{
+//    await Application.Current.MainPage.DisplayAlert(
+//    "Error",
+//   "Ud le pone el error listo?",
+//    "Acecept");
+//}
+
+//        }
+
+//    }
+//}

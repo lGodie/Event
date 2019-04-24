@@ -9,6 +9,7 @@
             BindingContext="{Binding Votings}"
             Padding="5">
             <ListView
+                BackgroundColor="Transparent"
                 HasUnevenRows="True"
                 IsRefreshing="{Binding IsRefreshing}"
                 IsPullToRefreshEnabled="True"
@@ -17,20 +18,26 @@
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <ViewCell>
+                            <Frame
+                                CornerRadius="20"
+                                HasShadow="true"
+                                Margin="5">
                             <Grid>
                                 <Grid.GestureRecognizers>
-                                    <TapGestureRecognizer Command="{Binding SelectVoteCommand}"/>
+                                        <TapGestureRecognizer Command="{Binding SelectVoteCommand}"/>
                                 </Grid.GestureRecognizers>
                                 <Grid.ColumnDefinitions>
                                     <ColumnDefinition Width="Auto"/>
                                     <ColumnDefinition Width="2*"/>
-                                    
+                                    <ColumnDefinition Width="Auto"/>
+                                    <ColumnDefinition Width="Auto"/>
                                 </Grid.ColumnDefinitions>
                                 <StackLayout
                                     Grid.Column="1"
                                     VerticalOptions="Center">
                                     <Label
                                     FontAttributes="Bold"
+                                    FontSize="Large"
                                     Grid.Column="2"
                                     Text="{Binding Description}"
                                     VerticalOptions="Center">
@@ -38,12 +45,21 @@
 
                                     <Label
                                     Grid.Column="3"
-                                    
+                                    FontAttributes="Bold"
+                                    FontSize="Large"
                                     Text="{Binding Remarks}"
+                                    HorizontalOptions ="Center">
+                                    </Label>
+
+                                    <Label
+                                    Grid.Column="4"
+                                    
+                                    Text="{Binding DateTimeStart}"
                                     HorizontalOptions ="Center">
                                     </Label>
                                 </StackLayout>
                             </Grid>
+                            </Frame>    
                         </ViewCell>
                     </DataTemplate>
                 </ListView.ItemTemplate>

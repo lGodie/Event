@@ -28,7 +28,12 @@ namespace Event.UIForms.ViewModels
 
         public string Email { get; set; }
 
-        public string Address { get; set; }
+        public string Occupation { get; set; }
+
+        public string Stratum { get; set; }
+
+        public string Gender { get; set; }
+
 
         public string Phone { get; set; }
 
@@ -171,14 +176,7 @@ namespace Event.UIForms.ViewModels
                 return;
             }
 
-            if (string.IsNullOrEmpty(this.Address))
-            {
-                await Application.Current.MainPage.DisplayAlert(
-                    "Error",
-                    "You must enter an address.",
-                    "Accept");
-                return;
-            }
+            
 
             if (string.IsNullOrEmpty(this.Phone))
             {
@@ -230,13 +228,14 @@ namespace Event.UIForms.ViewModels
 
             var request = new NewUserRequest
             {
-                Address = this.Address,
+                
                 CityId = this.City.Id,
                 Email = this.Email,
                 FirstName = this.FirstName,
                 LastName = this.LastName,
                 Password = this.Password,
-                Phone = this.Phone
+                Phone = this.Phone,
+
             };
 
             var url = Application.Current.Resources["UrlAPI"].ToString();

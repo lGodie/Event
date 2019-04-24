@@ -6,14 +6,13 @@
              Title="Vote for Candidate">
     <ContentPage.Content>
         <StackLayout
-            BindingContext="{Binding Candidate}"
+            BindingContext="{Binding Candidates}"
             Padding="5">
             <ListView
+                 IsRefreshing="False"
                 HasUnevenRows="True"
-                IsRefreshing="{Binding IsRefreshing}"
                 IsPullToRefreshEnabled="True"
-                ItemsSource="{Binding Candidate}"
-                RefreshCommand="{Binding RefreshCommand}">
+                ItemsSource="{Binding Candidates}">
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <ViewCell>
@@ -21,21 +20,21 @@
                                 <Grid.ColumnDefinitions>
                                     <ColumnDefinition Width="Auto"/>
                                     <ColumnDefinition Width="2*"/>
-                                    <ColumnDefinition Width="*"/>
                                 </Grid.ColumnDefinitions>
+                                <Grid.GestureRecognizers>
+                                    <TapGestureRecognizer Command="{Binding SelectCandidateCommand}"/>
+                                </Grid.GestureRecognizers>
                                 <StackLayout
+                                    
                                     Grid.Column="1"
                                     VerticalOptions="Center">
                                     <Label
                                     FontAttributes="Bold"
-                                    Grid.Column="2"
-                                    Text="{Binding Description}"
+                                    Text="{Binding Name}"
                                     VerticalOptions="Center">
                                     </Label>
 
                                     <Label
-                                    Grid.Column="3"
-                                    
                                     Text="{Binding Proposal}"
                                     HorizontalOptions ="Center">
                                     </Label>

@@ -14,6 +14,8 @@ namespace Event.UIForms
         public static NavigationPage Navigator { get; internal set; }
         public static MasterPage Master { get; internal set; }
 
+        
+
         public App()
         {
             InitializeComponent();
@@ -22,6 +24,7 @@ namespace Event.UIForms
             {
                 var token = JsonConvert.DeserializeObject<TokenResponse>(Settings.Token);
                 var user = JsonConvert.DeserializeObject<User>(Settings.User);
+                
 
                 if (token.Expiration > DateTime.Now)
                 {
@@ -31,6 +34,7 @@ namespace Event.UIForms
                     mainViewModel.UserEmail = Settings.UserEmail;
                     mainViewModel.UserPassword = Settings.UserPassword;
                     mainViewModel.Votings = new VotingsViewModel();
+                    mainViewModel.Candidates = new CandidateViewModel();
                     this.MainPage = new MasterPage();
                     return;
                 }
