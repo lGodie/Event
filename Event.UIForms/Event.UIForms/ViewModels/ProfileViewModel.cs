@@ -11,6 +11,7 @@
     using Event.Common.Helpers;
     using Event.UIForms.Views;
     using Xamarin.Forms;
+    using Event.UIForms.Helpers;
 
     public class ProfileViewModel : BaseViewModel
     {
@@ -99,9 +100,9 @@
             if (!response.IsSuccess)
             {
                 await Application.Current.MainPage.DisplayAlert(
-                    "Error",
+                    Languages.Error,
                     response.Message,
-                    "Accept");
+                    Languages.Accept);
                 return;
             }
 
@@ -129,54 +130,54 @@
             if (string.IsNullOrEmpty(this.User.FirstName))
             {
                 await Application.Current.MainPage.DisplayAlert(
-                    "Error",
-                    "You must enter the first name.",
-                    "Accept");
+                    Languages.Error,
+                    Languages.FirtName,
+                    Languages.Accept);
                 return;
             }
 
             if (string.IsNullOrEmpty(this.User.LastName))
             {
                 await Application.Current.MainPage.DisplayAlert(
-                    "Error",
-                    "You must enter the last name.",
-                    "Accept");
+                    Languages.Error,
+                    Languages.LastName,
+                    Languages.Accept);
                 return;
             }
 
             if (this.Country == null)
             {
                 await Application.Current.MainPage.DisplayAlert(
-                    "Error",
-                    "You must select a country.",
-                    "Accept");
+                     Languages.Error,
+                    Languages.EnterCountry,
+                    Languages.Accept);
                 return;
             }
 
             if (this.City == null)
             {
                 await Application.Current.MainPage.DisplayAlert(
-                    "Error",
-                    "You must select a city.",
-                    "Accept");
+                    Languages.Error,
+                    Languages.SelectCity,
+                    Languages.Accept);
                 return;
             }
 
             if (string.IsNullOrEmpty(this.User.Address))
             {
                 await Application.Current.MainPage.DisplayAlert(
-                    "Error",
-                    "You must enter an address.",
-                    "Accept");
+                    Languages.Error,
+                    Languages.PhoneNumber,
+                    Languages.Accept);
                 return;
             }
 
             if (string.IsNullOrEmpty(this.User.PhoneNumber))
             {
                 await Application.Current.MainPage.DisplayAlert(
-                    "Error",
-                    "You must enter a phone number.",
-                    "Accept");
+                     Languages.Error,
+                    Languages.UserUpdate,
+                    Languages.Accept);
                 return;
             }
 
@@ -198,9 +199,9 @@
             if (!response.IsSuccess)
             {
                 await Application.Current.MainPage.DisplayAlert(
-                    "Error",
+                    Languages.Error,
                     response.Message,
-                    "Accept");
+                    Languages.Accept);
                 return;
             }
 
@@ -208,9 +209,9 @@
             Settings.User = JsonConvert.SerializeObject(this.User);
 
             await Application.Current.MainPage.DisplayAlert(
-                "Ok",
-                "User updated!",
-                "Accept");
+                    Languages.Error,
+                    Languages.UserUpdate,
+                    Languages.Accept);
             await App.Navigator.PopAsync();
         }
 

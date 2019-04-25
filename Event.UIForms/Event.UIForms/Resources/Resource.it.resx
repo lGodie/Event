@@ -150,4 +150,46 @@
   <data name="Remember" xml:space="preserve">
     <value>Ricordati di me in questo dispositivo!</value>
   </data>
+  <data name="CurrentPassword" xml:space="preserve">
+    <value>È necessario immettere la password utente corrente</value>
+  </data>
+  <data name="IncorrectPassword" xml:space="preserve">
+    <value>L&amp;#39;attuale passwrod non è corretta.!</value>
+  </data>
+  <data name="NewPassword" xml:space="preserve">
+    <value>Immettere la nuova password.</value>
+  </data>
+  <data name="PasswordLength" xml:space="preserve">
+    <value>La password deve avere almeno 6 caratteri.</value>
+  </data>
+  <data name="PasswordConfirm" xml:space="preserve">
+    <value>Devi inserire la password per confermare.!</value>
+  </data>
+  <data name="PasswordMatch" xml:space="preserve">
+    <value>La nuova password e la password di conferma non corrispondono.</value>
+  </data>
+  <data name="FirtName" xml:space="preserve">
+    <value>Devi inserire il tuo nome di battesimo.</value>
+  </data>
+  <data name="LastName" xml:space="preserve">
+    <value>Devi inserire il tuo cognome</value>
+  </data>
+  <data name="EnterCountry" xml:space="preserve">
+    <value>Devi selezionare un paese.!</value>
+  </data>
+  <data name="SelectCity" xml:space="preserve">
+    <value>Devi selezionare una città.!</value>
+  </data>
+  <data name="PhoneNumber" xml:space="preserve">
+    <value>Devi inserire un numero di telefono.!</value>
+  </data>
+  <data name="UserUpdate" xml:space="preserve">
+    <value>Utente modificato</value>
+  </data>
+  <data name="ok" xml:space="preserve">
+    <value>OK!</value>
+  </data>
+  <data name="EmailValid" xml:space="preserve">
+    <value>Si deve inserire un indirizzo email valido.</value>
+  </data>
 </root>

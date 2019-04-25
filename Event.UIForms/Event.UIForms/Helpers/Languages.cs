@@ -34,6 +34,37 @@
         public static string PasswordPlaceHolder => Resource.PasswordPlaceHolder;
 
         public static string Remember => Resource.Remember;
+
+
+        public static string CurrentPassword => Resource.CurrentPassword;
+        public static string IncorrectPassword => Resource.IncorrectPassword;
+
+        public static string NewPassword => Resource.NewPassword;
+
+        public static string PasswordLength => Resource.PasswordLength;
+
+        public static string PasswordConfirm => Resource.PasswordConfirm;
+
+        public static string PasswordMatch => Resource.PasswordMatch;
+
+        public static string FirtName => Resource.FirtName;
+
+        public static string LastName => Resource.LastName;
+
+        public static string EnterCountry => Resource.EnterCountry;
+
+        public static string SelectCity => Resource.SelectCity;
+
+        public static string PhoneNumber => Resource.PhoneNumber;
+
+        public static string UserUpdate => Resource.UserUpdate;
+
+        public static string ok => Resource.ok;
+
+        public static string EmailValid => Resource.EmailValid;
+
+        public static string VoteClosed => Resource.VoteClosed;
+
     }
 
 }

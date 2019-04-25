@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-<ContentPage  xmlns="http://xamarin.com/schemas/2014/forms"
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Event.UIForms.Views.CandidatePage"
              BindingContext="{Binding Main, Source={StaticResource Locator}}"
@@ -9,23 +9,31 @@
             BindingContext="{Binding Candidates}"
             Padding="5">
             <ListView
-                 IsRefreshing="False"
+                BackgroundColor="Transparent"
                 HasUnevenRows="True"
+                IsRefreshing="{Binding IsRefreshing}"
                 IsPullToRefreshEnabled="True"
-                ItemsSource="{Binding Candidates}">
+                ItemsSource="{Binding Candidates}"
+                RefreshCommand="{Binding RefreshCommand}">
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <ViewCell>
+                            <Frame
+                                CornerRadius="20"
+                                HasShadow="true"
+                                Margin="5">
                             <Grid>
+                                <Grid.GestureRecognizers>
+                                   <TapGestureRecognizer Command="{Binding SelectCandidateCommand}"/>
+                                </Grid.GestureRecognizers>
                                 <Grid.ColumnDefinitions>
                                     <ColumnDefinition Width="Auto"/>
                                     <ColumnDefinition Width="2*"/>
-                                </Grid.ColumnDefinitions>
-                                <Grid.GestureRecognizers>
-                                    <TapGestureRecognizer Command="{Binding SelectCandidateCommand}"/>
-                                </Grid.GestureRecognizers>
+                                    <ColumnDefinition Width="Auto"/>
+                                        <ColumnDefinition Width="Auto"/>
+                                        <ColumnDefinition Width="Auto"/>
+                                    </Grid.ColumnDefinitions>
                                 <StackLayout
-                                    
                                     Grid.Column="1"
                                     VerticalOptions="Center">
                                     <Label
@@ -33,13 +41,13 @@
                                     Text="{Binding Name}"
                                     VerticalOptions="Center">
                                     </Label>
-
                                     <Label
                                     Text="{Binding Proposal}"
                                     HorizontalOptions ="Center">
                                     </Label>
                                 </StackLayout>
                             </Grid>
+                            </Frame>
                         </ViewCell>
                     </DataTemplate>
                 </ListView.ItemTemplate>

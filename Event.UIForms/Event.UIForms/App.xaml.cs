@@ -35,6 +35,7 @@ namespace Event.UIForms
                     mainViewModel.UserPassword = Settings.UserPassword;
                     mainViewModel.Votings = new VotingsViewModel();
                     mainViewModel.Candidates = new CandidateViewModel();
+                    mainViewModel.Votes = new VoteViewModel();
                     this.MainPage = new MasterPage();
                     return;
                 }

@@ -4,6 +4,7 @@
     using Common.Helpers;
     using Common.Services;
     using Event.Common.Models;
+    using Event.UIForms.Helpers;
     using GalaSoft.MvvmLight.Command;
     using Xamarin.Forms;
 
@@ -40,18 +41,18 @@
             if (string.IsNullOrEmpty(this.Email))
             {
                 await Application.Current.MainPage.DisplayAlert(
-                    "Error",
-                    "You must enter an email.",
-                    "Accept");
+                   Languages.Error,
+                    Languages.EmailError,
+                    Languages.Accept);
                 return;
             }
 
             if (!RegexHelper.IsValidEmail(this.Email))
             {
                 await Application.Current.MainPage.DisplayAlert(
-                    "Error",
-                    "You must enter a valid email.",
-                    "Accept");
+                    Languages.Error,
+                    Languages.EmailValid,
+                    Languages.Accept);
                 return;
             }
             this.IsRunning = true;
@@ -75,16 +76,16 @@
             if (!response.IsSuccess)
             {
                 await Application.Current.MainPage.DisplayAlert(
-                    "Error",
+                    Languages.Error,
                     response.Message,
-                    "Accept");
+                    Languages.Accept);
                 return;
             }
 
             await Application.Current.MainPage.DisplayAlert(
-                "Ok",
+                Languages.ok,
                 response.Message,
-                "Accept");
+                Languages.Accept);
             await Application.Current.MainPage.Navigation.PopAsync();
 
         }

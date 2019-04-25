@@ -7,7 +7,7 @@
     using System;
     using System.Windows.Input;
     using Xamarin.Forms;
-    public class CandidateItemViewModel: Candidate
+    public class CandidateItemViewModel : Candidate
     {
         public ICommand SelectCandidateCommand => new RelayCommand(this.SelectCandidate);
 

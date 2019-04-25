@@ -1,6 +1,7 @@
 ﻿namespace Event.UIForms.ViewModels
 {
     using Event.Common.Models;
+    using Event.UIForms.Helpers;
     using Event.UIForms.Views;
     using GalaSoft.MvvmLight.Command;
     using System;
@@ -13,21 +14,23 @@
         public ICommand SelectVoteCommand => new RelayCommand(this.SelectVote);
         private async void SelectVote()
         {
-            //DateTime now = DateTime.Now;
-            //if (now >= this.DateTimeStart && now <= this.DateTimeEnd)
-            //{
+            DateTime now = DateTime.Now;
+            if (now >= this.DateTimeStart && now <= this.DateTimeEnd)
+            {
                 MainViewModel.GetInstance().Candidates = new CandidateViewModel(this);
                 await App.Navigator.PushAsync(new CandidatePage());
-            //}
-            //else
-            //{
-            //    await Application.Current.MainPage.DisplayAlert(
-            //    "Error",
-            //   "Ud le pone el error listo?",
-            //    "Acecept");
-            //}
-
         }
+            else
+            {
+                
+                await Application.Current.MainPage.DisplayAlert(
+                Languages.Error,
+               Languages.VoteClosed,
+                Languages.Accept);
+                
+            }
+
+}
 
     }
 }

@@ -2,6 +2,7 @@
 {
     using Event.Common.Models;
     using Event.Common.Services;
+    using Event.UIForms.Helpers;
     using System.Collections.Generic;
     using System.Collections.ObjectModel;
     using System.Linq;
@@ -49,16 +50,15 @@
 
             if (!response.IsSuccess)
             {
-                //TODO:burnt message
                 await Application.Current.MainPage.DisplayAlert(
-                "Error",
-                response.Message,
-                "Acecept");
+                    Languages.Error,
+                    response.Message,
+                    Languages.Accept);
 
                 return;
             }
             var myVotings = (List<Voting>)response.Result;
-            var lCandidatos = new List<Candidate>();
+            var myCandidates = new List<Candidate>();
             var mapsVotes = myVotings.Select(vote => new VotingItemViewModel
             {
                 Id = vote.Id,
@@ -70,8 +70,6 @@
             }
             );
             this.Votings = new ObservableCollection<VotingItemViewModel>(mapsVotes);
-
-
 
         }
     }

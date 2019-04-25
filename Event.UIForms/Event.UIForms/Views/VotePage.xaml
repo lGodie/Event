@@ -1,12 +1,19 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="Event.UIForms.Views.VotePage">
+             x:Class="Event.UIForms.Views.VotePage"
+             BindingContext="{Binding Main, Source={StaticResource Locator}}"
+             Title="Candidate">
     <ContentPage.Content>
-        <StackLayout>
-            <Label Text="Welcome to Xamarin.Forms!"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
+        <StackLayout
+            BindingContext="{Binding Votes}"
+            Padding="5">
+            <ListView
+                 IsRefreshing="False"
+                HasUnevenRows="True"
+                IsPullToRefreshEnabled="True"
+                ItemsSource="{Binding Votes}">
+            </ListView>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

@@ -30,11 +30,11 @@
         public CandidateViewModel(Voting votingItem)
         {
             this.Voting = votingItem;
-            this.Candidates = ToCandidates(votingItem.Candidates);
+            this.Candidates = ThisCandidates(votingItem.Candidates);
             this.apiService = new ApiService();
         }
 
-        private ObservableCollection<Candidate> ToCandidates(List<Candidate> candidate)
+        private ObservableCollection<Candidate> ThisCandidates(List<Candidate> candidate)
         {
             var mycandidates = new ObservableCollection<Candidate>();
             candidate.ForEach(c => mycandidates.Add(c));

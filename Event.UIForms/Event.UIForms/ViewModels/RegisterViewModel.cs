@@ -9,6 +9,7 @@ namespace Event.UIForms.ViewModels
     using Common.Models;
     using Event.Common.Helpers;
     using Event.Common.Services;
+    using Event.UIForms.Helpers;
     using GalaSoft.MvvmLight.Command;
     using Xamarin.Forms;
 
@@ -109,9 +110,9 @@ namespace Event.UIForms.ViewModels
             if (!response.IsSuccess)
             {
                 await Application.Current.MainPage.DisplayAlert(
-                    "Error",
+                    Languages.Error,
                     response.Message,
-                    "Accept");
+                    Languages.Accept);
                 return;
             }
 
@@ -125,54 +126,54 @@ namespace Event.UIForms.ViewModels
             if (string.IsNullOrEmpty(this.FirstName))
             {
                 await Application.Current.MainPage.DisplayAlert(
-                    "Error",
-                    "You must enter the first name.",
-                    "Accept");
+                    Languages.Error,
+                    Languages.FirtName,
+                    Languages.Accept);
                 return;
             }
 
             if (string.IsNullOrEmpty(this.LastName))
             {
                 await Application.Current.MainPage.DisplayAlert(
-                    "Error",
-                    "You must enter the last name.",
-                    "Accept");
+                    Languages.Error,
+                    Languages.LastName,
+                    Languages.Accept);
                 return;
             }
 
             if (string.IsNullOrEmpty(this.Email))
             {
                 await Application.Current.MainPage.DisplayAlert(
-                    "Error",
-                    "You must enter an email.",
-                    "Accept");
+                    Languages.Error,
+                    Languages.EmailError,
+                    Languages.Accept);
                 return;
             }
 
             if (!RegexHelper.IsValidEmail(this.Email))
             {
                 await Application.Current.MainPage.DisplayAlert(
-                    "Error",
-                    "You must enter a valid email.",
-                    "Accept");
+                    Languages.Error,
+                    Languages.EmailValid,
+                    Languages.Accept);
                 return;
             }
 
             if (this.Country == null)
             {
                 await Application.Current.MainPage.DisplayAlert(
-                    "Error",
-                    "You must select a country.",
-                    "Accept");
+                   Languages.Error,
+                    Languages.EnterCountry,
+                    Languages.Accept);
                 return;
             }
 
             if (this.City == null)
             {
                 await Application.Current.MainPage.DisplayAlert(
-                    "Error",
-                    "You must select a city.",
-                    "Accept");
+                   Languages.Error,
+                    Languages.SelectCity,
+                    Languages.Accept);
                 return;
             }
 
@@ -181,45 +182,45 @@ namespace Event.UIForms.ViewModels
             if (string.IsNullOrEmpty(this.Phone))
             {
                 await Application.Current.MainPage.DisplayAlert(
-                    "Error",
-                    "You must enter a phone number.",
-                    "Accept");
+                    Languages.Error,
+                    Languages.PhoneNumber,
+                    Languages.Accept);
                 return;
             }
 
             if (string.IsNullOrEmpty(this.Password))
             {
                 await Application.Current.MainPage.DisplayAlert(
-                    "Error",
-                    "You must enter a password.",
-                    "Accept");
+                    Languages.Error,
+                    Languages.PasswordError,
+                    Languages.Accept);
                 return;
             }
 
             if (this.Password.Length < 6)
             {
                 await Application.Current.MainPage.DisplayAlert(
-                    "Error",
-                    "You password must be at mimimun 6 characters.",
-                    "Accept");
+                    Languages.Error,
+                   Languages.PasswordLength,
+                   Languages.Accept);
                 return;
             }
 
             if (string.IsNullOrEmpty(this.Confirm))
             {
                 await Application.Current.MainPage.DisplayAlert(
-                    "Error",
-                    "You must enter a password confirm.",
-                    "Accept");
+                    Languages.Error,
+                   Languages.PasswordConfirm,
+                   Languages.Accept);
                 return;
             }
 
             if (!this.Password.Equals(this.Confirm))
             {
                 await Application.Current.MainPage.DisplayAlert(
-                    "Error",
-                    "The password and the confirm do not match.",
-                    "Accept");
+                    Languages.Error,
+                   Languages.PasswordMatch,
+                   Languages.Accept);
                 return;
             }
 
@@ -251,16 +252,16 @@ namespace Event.UIForms.ViewModels
             if (!response.IsSuccess)
             {
                 await Application.Current.MainPage.DisplayAlert(
-                    "Error",
+                    Languages.Error,
                     response.Message,
-                    "Accept");
+                    Languages.Accept);
                 return;
             }
 
             await Application.Current.MainPage.DisplayAlert(
-                "Ok",
+                Languages.ok,
                 response.Message,
-                "Accept");
+               Languages.Accept);
             await Application.Current.MainPage.Navigation.PopAsync();
         }
 
