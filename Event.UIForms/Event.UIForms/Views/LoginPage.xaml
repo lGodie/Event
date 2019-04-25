@@ -4,6 +4,7 @@
              xmlns:i18n="clr-namespace:Event.UIForms.Helpers"
              x:Class="Event.UIForms.Views.LoginPage"
              BindingContext="{Binding Main, Source={StaticResource Locator}}"
+             BackgroundColor="Transparent"
              Title="{i18n:Translate Login}">
     <ContentPage.Content>
         <ScrollView
@@ -44,8 +45,8 @@
 
                 <Label
 	              HorizontalOptions="Center"
-	              Text="Forgot my password"
-	              TextColor="Navy">
+	              Text="{i18n:Translate Register}"
+	              TextColor="Red">
                     <Label.GestureRecognizers>
                         <TapGestureRecognizer Command="{Binding RememberPasswordCommand }"/>
                     </Label.GestureRecognizers>
@@ -68,13 +69,13 @@
     	            TextColor="White">
                     </Button>
                     <Button
-    	             BackgroundColor="Purple"
+    	             BackgroundColor="Orange"
     	             BorderRadius="23"
     	             Command="{Binding RegisterCommand}"
     	             HeightRequest="46"
     	             HorizontalOptions="FillAndExpand"
     	             IsEnabled="{Binding IsEnabled}"
-    	             Text="RegisterNewUser"
+    	             Text="{i18n:Translate Register}"
     	             TextColor="White">
                     </Button>
                 </StackLayout>

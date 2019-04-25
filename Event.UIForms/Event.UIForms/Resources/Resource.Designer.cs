@@ -70,6 +70,15 @@ namespace Event.UIForms.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Vote for Candidate.
+        /// </summary>
+        public static string Candidate {
+            get {
+                return ResourceManager.GetString("Candidate", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to You must enter the current password..
         /// </summary>
         public static string CurrentPassword {
@@ -138,6 +147,15 @@ namespace Event.UIForms.Resources {
         public static string FirtName {
             get {
                 return ResourceManager.GetString("FirtName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Forgot my password.
+        /// </summary>
+        public static string Forgot {
+            get {
+                return ResourceManager.GetString("Forgot", resourceCulture);
             }
         }
         
@@ -259,6 +277,15 @@ namespace Event.UIForms.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Register new user.
+        /// </summary>
+        public static string Register {
+            get {
+                return ResourceManager.GetString("Register", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Remember me in this device.
         /// </summary>
         public static string Remember {
@@ -291,6 +318,15 @@ namespace Event.UIForms.Resources {
         public static string VoteClosed {
             get {
                 return ResourceManager.GetString("VoteClosed", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Voting Events.
+        /// </summary>
+        public static string VotingEvents {
+            get {
+                return ResourceManager.GetString("VotingEvents", resourceCulture);
             }
         }
     }

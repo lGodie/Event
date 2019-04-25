@@ -65,6 +65,44 @@
 
         public static string VoteClosed => Resource.VoteClosed;
 
+        public static string Register => Resource.Register;
+
+        public static string Forgot => Resource.Forgot;
+
+
+        //public static string Votings => Resource.Votings;
+
+        //public static string Description => Resource.Description;
+
+        //public static string Remarks => Resource.Remarks;
+
+        //public static string Cancel => Resource.Cancel;
+
+        //public static string Confirm => Resource.Confirm;
+
+        //public static string Register => Resource.Menu;
+
+        //public static string Setup => Resource.Setup;
+
+        //public static string About => Resource.About;
+
+        //public static string Exit => Resource.Exit;
+
+        //public static string Phone => Resource.Phone;
+
+        //public static string PhonePlaceHolder => Resource.PhonePlaceHolder;
+
+        //public static string Phone => Resource.Phone;
+
+        //public static string PasswordConfirmPlaceHolder => Resource.PasswordConfirmPlaceHolder;
+
+
+        //public static string AddressPlaceHolder => Resource.AddressPlaceHolder;
+
+
+
+        
+
     }
 
 }

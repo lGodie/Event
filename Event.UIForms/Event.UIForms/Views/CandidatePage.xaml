@@ -1,9 +1,10 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:i18n="clr-namespace:Event.UIForms.Helpers"
              x:Class="Event.UIForms.Views.CandidatePage"
              BindingContext="{Binding Main, Source={StaticResource Locator}}"
-             Title="Vote for Candidate">
+             Title="{i18n:Translate Candidate}">
     <ContentPage.Content>
         <StackLayout
             BindingContext="{Binding Candidates}"
@@ -38,10 +39,12 @@
                                     VerticalOptions="Center">
                                     <Label
                                     FontAttributes="Bold"
+                                        FontSize="Large"
                                     Text="{Binding Name}"
                                     VerticalOptions="Center">
                                     </Label>
                                     <Label
+                                        FontSize="Large"
                                     Text="{Binding Proposal}"
                                     HorizontalOptions ="Center">
                                     </Label>

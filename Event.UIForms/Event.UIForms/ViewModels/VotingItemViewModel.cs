@@ -14,8 +14,7 @@
         public ICommand SelectVoteCommand => new RelayCommand(this.SelectVote);
         private async void SelectVote()
         {
-            DateTime now = DateTime.Now;
-            if (now >= this.DateTimeStart && now <= this.DateTimeEnd)
+            if (DateTime.Now >= this.DateTimeStart && DateTime.Now <= this.DateTimeEnd)
             {
                 MainViewModel.GetInstance().Candidates = new CandidateViewModel(this);
                 await App.Navigator.PushAsync(new CandidatePage());

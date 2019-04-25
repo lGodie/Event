@@ -192,4 +192,19 @@
   <data name="EmailValid" xml:space="preserve">
     <value>Si deve inserire un indirizzo email valido.</value>
   </data>
+  <data name="VoteClosed" xml:space="preserve">
+    <value>La votazione è chiusa.</value>
+  </data>
+  <data name="VotingEvents" xml:space="preserve">
+    <value>Voto degli eventi!</value>
+  </data>
+  <data name="Register" xml:space="preserve">
+    <value>Registra una nuova utenza</value>
+  </data>
+  <data name="Forgot" xml:space="preserve">
+    <value>Ho dimenticato la password!</value>
+  </data>
+  <data name="Candidate" xml:space="preserve">
+    <value>Vota per candidato!</value>
+  </data>
 </root>

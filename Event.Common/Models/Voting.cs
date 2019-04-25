@@ -37,7 +37,7 @@
 
         public override string ToString()
         {
-            return $"{this.Description} {this.Remarks}{this.DateTimeStart}{this.DateTimeEnd}";
+            return $"{this.Description}{this.Remarks}";
         }
 
         [JsonProperty("candidates")]

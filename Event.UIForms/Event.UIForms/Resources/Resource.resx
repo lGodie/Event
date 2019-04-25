@@ -195,4 +195,16 @@
   <data name="VoteClosed" xml:space="preserve">
     <value>The vote is closed</value>
   </data>
+  <data name="VotingEvents" xml:space="preserve">
+    <value>Voting Events</value>
+  </data>
+  <data name="Register" xml:space="preserve">
+    <value>Register new user</value>
+  </data>
+  <data name="Forgot" xml:space="preserve">
+    <value>Forgot my password</value>
+  </data>
+  <data name="Candidate" xml:space="preserve">
+    <value>Vote for Candidate</value>
+  </data>
 </root>
