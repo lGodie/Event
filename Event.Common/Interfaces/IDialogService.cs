@@ -2,6 +2,6 @@
 {
     public interface IDialogService
     {
-        void Alert(string message, string title , string okbtntext);
+        void Alert(string message, string title,  string okbtnText);
     }
 }

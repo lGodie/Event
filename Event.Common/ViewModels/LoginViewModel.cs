@@ -15,6 +15,7 @@
         private string email;
         private string password;
         private MvxCommand loginCommand;
+        private MvxCommand registerCommand;
         private readonly IApiService apiService;
         private readonly IDialogService dialogService;
         private readonly IMvxNavigationService navigationService;
@@ -47,6 +48,16 @@
             }
         }
 
+        public ICommand RegisterCommand
+        {
+            get
+            {
+                this.registerCommand = this.registerCommand ?? new MvxCommand(this.DoRegisterCommand);
+                return this.registerCommand;
+            }
+        }
+
+
         public LoginViewModel(
             IApiService apiService,
             IDialogService dialogService,
@@ -59,6 +70,11 @@
             this.Email = "diegozapata1345@gmail.com";
             this.Password = "123456";
             this.IsLoading = false;
+        }
+
+        private async void DoRegisterCommand()
+        {
+            await this.navigationService.Navigate<RegisterViewModel>();
         }
 
         private async void DoLoginCommand()
@@ -105,6 +121,8 @@
             this.IsLoading = false;
             await this.navigationService.Navigate<VotingsViewModel>();
         }
+      
+
     }
 
 }
