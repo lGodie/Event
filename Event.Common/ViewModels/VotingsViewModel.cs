@@ -36,7 +36,7 @@
             var response = await this.apiService.GetListAsync<Voting>(
                 "https://diegozapataeventweb.azurewebsites.net",
                 "/api",
-                "/Votings",
+                "/Candidate",
                 "bearer",
                 token.Token);
 
@@ -50,6 +50,5 @@
             this.Votings = this.Votings.OrderBy(p=>p.DateTimeStart).ToList();
         }
     }
-
 
 }
