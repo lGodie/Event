@@ -8,7 +8,9 @@
 	<MvxListView
     	android:layout_width="fill_parent"
     	android:layout_height="fill_parent"
-    	local:MvxBind="ItemsSource Votings"
-    	local:MvxItemTemplate="@layout/votingrow"/>
+    	local:MvxItemTemplate="@layout/votingrow"
+        local:MvxBind="ItemsSource Votings;ItemClick CandidateCommand;"/>
+
+  
 </LinearLayout>
 
