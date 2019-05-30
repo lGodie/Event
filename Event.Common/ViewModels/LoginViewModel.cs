@@ -75,6 +75,7 @@
         private async void DoRegisterCommand()
         {
             await this.navigationService.Navigate<RegisterViewModel>();
+            //comment
         }
 
         private async void DoLoginCommand()
