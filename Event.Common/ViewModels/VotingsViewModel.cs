@@ -1,5 +1,6 @@
 ﻿namespace Event.Common.ViewModels
 {
+    using System;
     using System.Collections.Generic;
     using System.Linq;
     using System.Windows.Input;
@@ -15,7 +16,7 @@
     public class VotingsViewModel : MvxViewModel
     {
         private List<Voting> votings;
-        private MvxCommand candidateCommand;
+        private MvxCommand<Voting> candidateCommand;
         private readonly IMvxNavigationService navigationService;
         private readonly IApiService apiService;
         private readonly IDialogService dialogService;
@@ -41,15 +42,24 @@
         {
             get
             {
-                this.candidateCommand = this.candidateCommand ?? new MvxCommand(this.DoCandidateCommand);
+                this.candidateCommand = this.candidateCommand ?? new MvxCommand<Voting>(this.DoCandidateCommand);
                 return this.candidateCommand;
             }
         }
 
-        private async void DoCandidateCommand()
+        private async void DoCandidateCommand(Voting voting)
         {
-           //this.dialogService.Alert("Ok", "Fuck yeah!", "Accept");
-            await this.navigationService.Navigate<RegisterViewModel>();
+            if (DateTime.Now >= voting.DateTimeStart && DateTime.Now <= voting.DateTimeEnd)
+            {
+               
+                await this.navigationService.Navigate<RegisterViewModel>();
+            }
+            else
+            {
+
+                this.dialogService.Alert("Error", "The vote is closed", "Accept");
+
+            }
         }
         private async void LoadVotings()
         {
