@@ -42,8 +42,8 @@
         {
             get
             {
-                this.candidateCommand = this.candidateCommand ?? new MvxCommand<Voting>(this.DoCandidateCommand);
-                return this.candidateCommand;
+                this.candidateCommand = new MvxCommand<Voting>(this.DoCandidateCommand);
+                return candidateCommand;
             }
         }
 
@@ -51,8 +51,9 @@
         {
             if (DateTime.Now >= voting.DateTimeStart && DateTime.Now <= voting.DateTimeEnd)
             {
-               
-                await this.navigationService.Navigate<RegisterViewModel>();
+
+                await this.navigationService.Navigate<CandidatesViewModel, NavigationArgs>(
+                    new NavigationArgs { Voting = voting });
             }
             else
             {
