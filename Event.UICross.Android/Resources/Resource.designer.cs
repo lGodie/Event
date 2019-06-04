@@ -8934,8 +8934,8 @@ namespace Event.UICross.Android
 			// aapt resource value: 0x7f0a00c4
 			public const int loginButton = 2131361988;
 			
-			// aapt resource value: 0x7f0a00e0
-			public const int masked = 2131362016;
+			// aapt resource value: 0x7f0a00df
+			public const int masked = 2131362015;
 			
 			// aapt resource value: 0x7f0a00ab
 			public const int message = 2131361963;
@@ -9211,10 +9211,7 @@ namespace Event.UICross.Android
 			public const int title_template = 2131361933;
 			
 			// aapt resource value: 0x7f0a00d4
-			public const int title_textView = 2131362004;
-			
-			// aapt resource value: 0x7f0a00de
-			public const int toolbar = 2131362014;
+			public const int toolbar = 2131362004;
 			
 			// aapt resource value: 0x7f0a0047
 			public const int top = 2131361863;
@@ -9255,8 +9252,8 @@ namespace Event.UICross.Android
 			// aapt resource value: 0x7f0a001b
 			public const int view_offset_helper = 2131361819;
 			
-			// aapt resource value: 0x7f0a00df
-			public const int visible = 2131362015;
+			// aapt resource value: 0x7f0a00de
+			public const int visible = 2131362014;
 			
 			// aapt resource value: 0x7f0a0045
 			public const int withText = 2131361861;
