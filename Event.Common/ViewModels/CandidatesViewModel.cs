@@ -1,5 +1,6 @@
 ﻿namespace Event.Common.ViewModels
 {
+    using System;
     using System.Collections.Generic;
     using System.Windows.Input;
     using Helpers;
@@ -17,6 +18,7 @@
         private readonly IDialogService dialogService;
         private readonly IMvxNavigationService navigationService;
         private Candidate candidate;
+        private MvxCommand voteCommand;
         private Voting Voting;
         private bool isLoading;
         //private MvxCommand voteCommand;
@@ -38,6 +40,20 @@
             set => this.SetProperty(ref this.isLoading, value);
         }
 
+        public ICommand VoteCommand
+        {
+            get
+            {
+                this.voteCommand = this.voteCommand ?? new MvxCommand(this.Vote);
+                return this.voteCommand;
+            }
+        }
+
+        private void Vote()
+        {
+
+            this.dialogService.Alert("OK", "Do you want vote for  this candidate", "Accept");
+        }
 
         public List<Candidate> Candidates 
         {
