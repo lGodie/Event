@@ -1,10 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-	xmlns:android="http://schemas.android.com/apk/res/android"
-	xmlns:local="http://schemas.android.com/apk/res-auto"
-	android:orientation="horizontal"
-	android:layout_width="fill_parent"
-	android:layout_height="fill_parent">
+<android.support.v7.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:local="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_margin="5dp"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    local:cardElevation="5dp"
+    local:cardCornerRadius="6dp">
+    <android.support.constraint.ConstraintLayout
+        android:layout_margin="5dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
 	<ffimageloading.cross.MvxCachedImageView
     	android:layout_width="75dp"
     	android:layout_height="75dp"
@@ -24,7 +32,19 @@
         	android:layout_height="wrap_content"
         	android:textSize="20dp"
         	local:MvxBind="Text Remarks" />
-	</LinearLayout>
-</LinearLayout>
+        <TextView
+        	android:layout_width="fill_parent"
+        	android:layout_height="wrap_content"
+        	android:textSize="20dp"
+        	local:MvxBind="Text DateTimeStart" />
+        <TextView
+        	android:layout_width="fill_parent"
+        	android:layout_height="wrap_content"
+        	android:textSize="20dp"
+        	local:MvxBind="Text DateTimeEnd" />
+        </LinearLayout>
+	 </android.support.constraint.ConstraintLayout>
+
+</android.support.v7.widget.CardView>
 
 
