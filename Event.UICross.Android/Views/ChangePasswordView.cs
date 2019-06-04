@@ -1,20 +1,19 @@
-﻿
+﻿using Android.Views;
 using Android.App;
 using Android.OS;
-using Android.Views;
 using MvvmCross.Droid.Support.V7.AppCompat;
 using Event.Common.ViewModels;
 using Toolbar = Android.Support.V7.Widget.Toolbar;
+
 namespace Event.UICross.Android.Views
 {
-
-    [Activity(Label = "@string/candidate")]
-    public class CandidateView : MvxAppCompatActivity<CandidatesViewModel>
+    [Activity(Label = "@string/change_password")]
+    public class ChangePasswordView : MvxAppCompatActivity<ChangePasswordViewModel>
     {
-        protected override void OnCreate(Bundle savedInstanceState)
+        protected override void OnCreate(Bundle bundle)
         {
-            base.OnCreate(savedInstanceState);
-            this.SetContentView(Resource.Layout.CandidatesPage);
+            base.OnCreate(bundle);
+            this.SetContentView(Resource.Layout.ChangePasswordPage);
             var toolbar = FindViewById<Toolbar>(Resource.Id.toolbar);
             SetSupportActionBar(toolbar);
 
@@ -24,13 +23,11 @@ namespace Event.UICross.Android.Views
                 actionBar.SetDisplayHomeAsUpEnabled(true);
             }
         }
+
         public override bool OnOptionsItemSelected(IMenuItem item)
         {
             if (item.ItemId == global::Android.Resource.Id.Home) { OnBackPressed(); }
             return base.OnOptionsItemSelected(item);
         }
     }
-
-
-
 }
