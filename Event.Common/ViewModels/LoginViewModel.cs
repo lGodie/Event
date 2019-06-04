@@ -1,10 +1,11 @@
 ﻿namespace Event.Common.ViewModels
 {
+
     using System.Windows.Input;
     using Interfaces;
     using Models;
-    using MvvmCross.Navigation;
     using MvvmCross.Commands;
+    using MvvmCross.Navigation;
     using MvvmCross.ViewModels;
     using Services;
     using Event.Common.Helpers;
@@ -19,7 +20,25 @@
         private readonly IApiService apiService;
         private readonly IDialogService dialogService;
         private readonly IMvxNavigationService navigationService;
+        private readonly INetworkProvider networkProvider;
         private bool isLoading;
+
+        public LoginViewModel(
+            IApiService apiService,
+            IDialogService dialogService,
+            IMvxNavigationService navigationService,
+            INetworkProvider networkProvider
+            )
+        {
+            this.apiService = apiService;
+            this.dialogService = dialogService;
+            this.navigationService = navigationService;
+            this.networkProvider = networkProvider;
+
+            this.Email = "diegozapata1345@gmail.com";
+            this.Password = "123456";
+            this.IsLoading = false;
+        }
 
         public bool IsLoading
         {
@@ -39,12 +58,14 @@
             set => this.SetProperty(ref this.password, value);
         }
 
-        public ICommand LoginCommand
+        
+
+    public ICommand LoginCommand
         {
             get
             {
                 this.loginCommand = this.loginCommand ?? new MvxCommand(this.DoLoginCommand);
-                return this.loginCommand; 
+                return this.loginCommand;
             }
         }
 
@@ -57,25 +78,9 @@
             }
         }
 
-
-        public LoginViewModel(
-            IApiService apiService,
-            IDialogService dialogService,
-            IMvxNavigationService navigationService)
-        {
-            this.apiService = apiService;
-            this.dialogService = dialogService;
-            this.navigationService = navigationService;
-
-            this.Email = "diegozapata1345@gmail.com";
-            this.Password = "123456";
-            this.IsLoading = false;
-        }
-
         private async void DoRegisterCommand()
         {
             await this.navigationService.Navigate<RegisterViewModel>();
-            //comment
         }
 
         private async void DoLoginCommand()
@@ -92,6 +97,12 @@
                 return;
             }
 
+            if (!this.networkProvider.IsConnectedToWifi())
+            {
+                this.dialogService.Alert("Error", "The App requiered a internet connection, please check and try again.", "Accept");
+                return;
+            }
+
             this.IsLoading = true;
 
             var request = new TokenRequest
@@ -101,7 +112,7 @@
             };
 
             var response = await this.apiService.GetTokenAsync(
-                "https://diegozapataeventweb.azurewebsites.net",
+               "https://diegozapataeventweb.azurewebsites.net",
                 "/Account",
                 "/CreateToken",
                 request);
@@ -113,17 +124,24 @@
                 return;
             }
 
-            //this.IsLoading = false;
-            //this.dialogService.Alert("Ok", "Fuck yeah!", "Accept");
-
             var token = (TokenResponse)response.Result;
+
+            var response2 = await this.apiService.GetUserByEmailAsync(
+                "https://diegozapataeventweb.azurewebsites.net",
+                "/api",
+                "/Account/GetUserByEmail",
+                this.Email,
+                "bearer",
+                token.Token);
+
+            var user = (User)response2.Result;
+            Settings.UserPassword = this.Password;
+            Settings.User = JsonConvert.SerializeObject(user);
             Settings.UserEmail = this.Email;
             Settings.Token = JsonConvert.SerializeObject(token);
+
             this.IsLoading = false;
             await this.navigationService.Navigate<VotingsViewModel>();
         }
-      
-
     }
-
 }
