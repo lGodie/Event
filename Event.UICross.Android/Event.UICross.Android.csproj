@@ -69,6 +69,7 @@
     <Compile Include="Views\ChangePasswordView.cs" />
     <Compile Include="Views\EditUserView.cs" />
     <Compile Include="Views\LoginView.cs" />
+    <Compile Include="Views\RecoverView.cs" />
     <Compile Include="Views\RegisterView.cs" />
     <Compile Include="Views\SplashView.cs" />
     <Compile Include="Views\VotingsView.cs" />
@@ -208,6 +209,11 @@
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\layout\EditUserPage.axml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\layout\RecoverPage.axml">
       <SubType>Designer</SubType>
     </AndroidResource>
   </ItemGroup>

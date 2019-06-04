@@ -8613,6 +8613,9 @@ namespace Event.UICross.Android
 			// aapt resource value: 0x7f0a0025
 			public const int MvxBindingTagUnique = 2131361829;
 			
+			// aapt resource value: 0x7f0a00d1
+			public const int RecoverButton = 2131362001;
+			
 			// aapt resource value: 0x7f0a003f
 			public const int SHIFT = 2131361855;
 			
@@ -8640,17 +8643,17 @@ namespace Event.UICross.Android
 			// aapt resource value: 0x7f0a0078
 			public const int action_bar_title = 2131361912;
 			
-			// aapt resource value: 0x7f0a00d4
-			public const int action_container = 2131362004;
+			// aapt resource value: 0x7f0a00d5
+			public const int action_container = 2131362005;
 			
 			// aapt resource value: 0x7f0a009d
 			public const int action_context_bar = 2131361949;
 			
-			// aapt resource value: 0x7f0a00df
-			public const int action_divider = 2131362015;
+			// aapt resource value: 0x7f0a00e0
+			public const int action_divider = 2131362016;
 			
-			// aapt resource value: 0x7f0a00d5
-			public const int action_image = 2131362005;
+			// aapt resource value: 0x7f0a00d6
+			public const int action_image = 2131362006;
 			
 			// aapt resource value: 0x7f0a0003
 			public const int action_menu_divider = 2131361795;
@@ -8667,11 +8670,11 @@ namespace Event.UICross.Android
 			// aapt resource value: 0x7f0a007a
 			public const int action_mode_close_button = 2131361914;
 			
-			// aapt resource value: 0x7f0a00d6
-			public const int action_text = 2131362006;
+			// aapt resource value: 0x7f0a00d7
+			public const int action_text = 2131362007;
 			
-			// aapt resource value: 0x7f0a00e0
-			public const int actions = 2131362016;
+			// aapt resource value: 0x7f0a00e1
+			public const int actions = 2131362017;
 			
 			// aapt resource value: 0x7f0a007b
 			public const int activity_chooser_view_content = 2131361915;
@@ -8724,8 +8727,8 @@ namespace Event.UICross.Android
 			// aapt resource value: 0x7f0a00ac
 			public const int browser_actions_menu_view = 2131361964;
 			
-			// aapt resource value: 0x7f0a00d1
-			public const int buttonContainer = 2131362001;
+			// aapt resource value: 0x7f0a00d2
+			public const int buttonContainer = 2131362002;
 			
 			// aapt resource value: 0x7f0a0081
 			public const int buttonPanel = 2131361921;
@@ -8748,8 +8751,8 @@ namespace Event.UICross.Android
 			// aapt resource value: 0x7f0a0095
 			public const int checkbox = 2131361941;
 			
-			// aapt resource value: 0x7f0a00de
-			public const int chronometer = 2131362014;
+			// aapt resource value: 0x7f0a00df
+			public const int chronometer = 2131362015;
 			
 			// aapt resource value: 0x7f0a00c9
 			public const int cityName_layout = 2131361993;
@@ -8820,11 +8823,11 @@ namespace Event.UICross.Android
 			// aapt resource value: 0x7f0a0029
 			public const int disableHome = 2131361833;
 			
-			// aapt resource value: 0x7f0a00e2
-			public const int drawerLayout = 2131362018;
+			// aapt resource value: 0x7f0a00e3
+			public const int drawerLayout = 2131362019;
 			
-			// aapt resource value: 0x7f0a00e4
-			public const int drawerListView = 2131362020;
+			// aapt resource value: 0x7f0a00e5
+			public const int drawerListView = 2131362021;
 			
 			// aapt resource value: 0x7f0a00ce
 			public const int editTextEmail = 2131361998;
@@ -8880,8 +8883,8 @@ namespace Event.UICross.Android
 			// aapt resource value: 0x7f0a0076
 			public const int forever = 2131361910;
 			
-			// aapt resource value: 0x7f0a00e3
-			public const int frameLayout = 2131362019;
+			// aapt resource value: 0x7f0a00e4
+			public const int frameLayout = 2131362020;
 			
 			// aapt resource value: 0x7f0a000a
 			public const int ghost_view = 2131361802;
@@ -8904,8 +8907,8 @@ namespace Event.UICross.Android
 			// aapt resource value: 0x7f0a0080
 			public const int icon = 2131361920;
 			
-			// aapt resource value: 0x7f0a00e1
-			public const int icon_group = 2131362017;
+			// aapt resource value: 0x7f0a00e2
+			public const int icon_group = 2131362018;
 			
 			// aapt resource value: 0x7f0a0043
 			public const int ifRoom = 2131361859;
@@ -8916,8 +8919,8 @@ namespace Event.UICross.Android
 			// aapt resource value: 0x7f0a00cc
 			public const int imageViewEmail = 2131361996;
 			
-			// aapt resource value: 0x7f0a00da
-			public const int info = 2131362010;
+			// aapt resource value: 0x7f0a00db
+			public const int info = 2131362011;
 			
 			// aapt resource value: 0x7f0a0068
 			public const int invisible = 2131361896;
@@ -8949,11 +8952,11 @@ namespace Event.UICross.Android
 			// aapt resource value: 0x7f0a007f
 			public const int list_item = 2131361919;
 			
-			// aapt resource value: 0x7f0a00d2
-			public const int loginButton = 2131362002;
+			// aapt resource value: 0x7f0a00d3
+			public const int loginButton = 2131362003;
 			
-			// aapt resource value: 0x7f0a00e6
-			public const int masked = 2131362022;
+			// aapt resource value: 0x7f0a00e7
+			public const int masked = 2131362023;
 			
 			// aapt resource value: 0x7f0a00ab
 			public const int message = 2131361963;
@@ -8982,8 +8985,8 @@ namespace Event.UICross.Android
 			// aapt resource value: 0x7f0a00b5
 			public const int newPasswordName_layout = 2131361973;
 			
-			// aapt resource value: 0x7f0a00d3
-			public const int newUserButton = 2131362003;
+			// aapt resource value: 0x7f0a00d4
+			public const int newUserButton = 2131362004;
 			
 			// aapt resource value: 0x7f0a002b
 			public const int none = 2131361835;
@@ -8991,14 +8994,14 @@ namespace Event.UICross.Android
 			// aapt resource value: 0x7f0a0027
 			public const int normal = 2131361831;
 			
-			// aapt resource value: 0x7f0a00dc
-			public const int notification_background = 2131362012;
+			// aapt resource value: 0x7f0a00dd
+			public const int notification_background = 2131362013;
+			
+			// aapt resource value: 0x7f0a00d9
+			public const int notification_main_column = 2131362009;
 			
 			// aapt resource value: 0x7f0a00d8
-			public const int notification_main_column = 2131362008;
-			
-			// aapt resource value: 0x7f0a00d7
-			public const int notification_main_column_container = 2131362007;
+			public const int notification_main_column_container = 2131362008;
 			
 			// aapt resource value: 0x7f0a0062
 			public const int outline = 2131361890;
@@ -9042,11 +9045,11 @@ namespace Event.UICross.Android
 			// aapt resource value: 0x7f0a0057
 			public const int right = 2131361879;
 			
-			// aapt resource value: 0x7f0a00db
-			public const int right_icon = 2131362011;
+			// aapt resource value: 0x7f0a00dc
+			public const int right_icon = 2131362012;
 			
-			// aapt resource value: 0x7f0a00d9
-			public const int right_side = 2131362009;
+			// aapt resource value: 0x7f0a00da
+			public const int right_side = 2131362010;
 			
 			// aapt resource value: 0x7f0a00cb
 			public const int saveButton = 2131361995;
@@ -9222,8 +9225,8 @@ namespace Event.UICross.Android
 			// aapt resource value: 0x7f0a001a
 			public const int textinput_helper_text = 2131361818;
 			
-			// aapt resource value: 0x7f0a00dd
-			public const int time = 2131362013;
+			// aapt resource value: 0x7f0a00de
+			public const int time = 2131362014;
 			
 			// aapt resource value: 0x7f0a0023
 			public const int title = 2131361827;
@@ -9276,8 +9279,8 @@ namespace Event.UICross.Android
 			// aapt resource value: 0x7f0a001b
 			public const int view_offset_helper = 2131361819;
 			
-			// aapt resource value: 0x7f0a00e5
-			public const int visible = 2131362021;
+			// aapt resource value: 0x7f0a00e6
+			public const int visible = 2131362022;
 			
 			// aapt resource value: 0x7f0a0045
 			public const int withText = 2131361861;
@@ -9556,31 +9559,34 @@ namespace Event.UICross.Android
 			public const int notification_template_part_time = 2130968632;
 			
 			// aapt resource value: 0x7f040039
-			public const int RegisterPage = 2130968633;
+			public const int RecoverPage = 2130968633;
 			
 			// aapt resource value: 0x7f04003a
-			public const int select_dialog_item_material = 2130968634;
+			public const int RegisterPage = 2130968634;
 			
 			// aapt resource value: 0x7f04003b
-			public const int select_dialog_multichoice_material = 2130968635;
+			public const int select_dialog_item_material = 2130968635;
 			
 			// aapt resource value: 0x7f04003c
-			public const int select_dialog_singlechoice_material = 2130968636;
+			public const int select_dialog_multichoice_material = 2130968636;
 			
 			// aapt resource value: 0x7f04003d
-			public const int SplashPage = 2130968637;
+			public const int select_dialog_singlechoice_material = 2130968637;
 			
 			// aapt resource value: 0x7f04003e
-			public const int support_simple_spinner_dropdown_item = 2130968638;
+			public const int SplashPage = 2130968638;
 			
 			// aapt resource value: 0x7f04003f
-			public const int Toolbar = 2130968639;
+			public const int support_simple_spinner_dropdown_item = 2130968639;
 			
 			// aapt resource value: 0x7f040040
-			public const int VotingRow = 2130968640;
+			public const int Toolbar = 2130968640;
 			
 			// aapt resource value: 0x7f040041
-			public const int VotingsPage = 2130968641;
+			public const int VotingRow = 2130968641;
+			
+			// aapt resource value: 0x7f040042
+			public const int VotingsPage = 2130968642;
 			
 			static Layout()
 			{

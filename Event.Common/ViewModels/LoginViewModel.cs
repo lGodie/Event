@@ -17,6 +17,7 @@
         private string password;
         private MvxCommand loginCommand;
         private MvxCommand registerCommand;
+        private MvxCommand recoverCommand;      
         private readonly IApiService apiService;
         private readonly IDialogService dialogService;
         private readonly IMvxNavigationService navigationService;
@@ -78,6 +79,19 @@
             }
         }
 
+        public ICommand RecoverCommand
+        {
+            get
+            {
+                this.recoverCommand = this.recoverCommand ?? new MvxCommand(this.DoRecoverCommand);
+                return this.recoverCommand;
+            }
+        }
+
+        private async void DoRecoverCommand()
+        {
+            await this.navigationService.Navigate<RecoverPasswordViewModel>();
+        }
         private async void DoRegisterCommand()
         {
             await this.navigationService.Navigate<RegisterViewModel>();

@@ -49,6 +49,15 @@
         local:MvxBind="Text Password"
         app:layout_constraintTop_toBottomOf="@+id/textViewPassword"/>
 
+    
+        <Button
+            android:id="@+id/RecoverButton"
+            android:text="Recover Password"
+            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            app:layout_constraintTop_toBottomOf="@+id/editTextPassword"
+            local:MvxBind="Click RecoverCommand"/>
+
     <LinearLayout
         android:id="@+id/buttonContainer"
         android:layout_width="wrap_content"
@@ -74,10 +83,11 @@
             android:text="NEW USER"
             android:layout_width="130dp"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="15dp"
+            android:layout_marginLeft="5dp"
             android:layout_marginBottom="2dp"
             android:background="@drawable/secondary_button"
             local:MvxBind="Click RegisterCommand"/>
+
     </LinearLayout>
 
     <ProgressBar
