@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout
+	xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:local="http://schemas.android.com/apk/res-auto"
+	android:orientation="vertical"
+	android:layout_width="match_parent"
+	android:layout_height="match_parent">
+
+	<include
+    	layout="@layout/toolbar" />
+
+	<LinearLayout
+    	android:orientation="vertical"
+    	android:minWidth="25px"
+    	android:minHeight="25px"
+    	android:padding="10dp"
+    	android:layout_width="match_parent"
+    	android:layout_height="wrap_content"
+    	local:layout_constraintTop_toBottomOf="@+id/toolbar">
+
+    	<LinearLayout
+        	android:id="@+id/emailName_layout"
+        	android:layout_width="match_parent"
+        	android:layout_height="wrap_content"
+        	android:orientation="horizontal"
+        	local:layout_constraintTop_toBottomOf="@+id/flastName_layout">
+
+        	<TextView
+            	android:layout_width="wrap_content"
+            	android:layout_height="wrap_content"
+            	android:textSize="18dp"
+            	android:text="The winner is:"/>
+
+
+    	</LinearLayout>
+
+    	
+	</LinearLayout>
+
+</android.support.constraint.ConstraintLayout>
+
+

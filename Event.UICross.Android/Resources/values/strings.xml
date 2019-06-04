@@ -4,6 +4,7 @@
     <string name="register">Register New User</string>
     <string name="candidate">Candidates options</string>
     <string name="votings">Voting events</string>
+    <string name="result">Result page</string>
     <string name="edit_user">Edit User</string>
     <string name="change_password">Change Password</string>
     <string name="navigation_drawer_open">navigation_drawer_open</string>

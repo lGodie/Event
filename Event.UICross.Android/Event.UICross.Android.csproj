@@ -71,6 +71,7 @@
     <Compile Include="Views\LoginView.cs" />
     <Compile Include="Views\RecoverView.cs" />
     <Compile Include="Views\RegisterView.cs" />
+    <Compile Include="Views\ResultView.cs" />
     <Compile Include="Views\SplashView.cs" />
     <Compile Include="Views\VotingsView.cs" />
   </ItemGroup>
@@ -214,6 +215,11 @@
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\layout\RecoverPage.axml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\layout\ResultPage.axml">
       <SubType>Designer</SubType>
     </AndroidResource>
   </ItemGroup>

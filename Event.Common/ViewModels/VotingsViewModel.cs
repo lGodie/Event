@@ -16,6 +16,7 @@
     public class VotingsViewModel : MvxViewModel
     {
         private List<Voting> votings;
+        private MvxCommand resultCommand;
         private MvxCommand<Voting> candidateCommand;
         private readonly IMvxNavigationService navigationService;
         private readonly IApiService apiService;
@@ -47,6 +48,20 @@
             }
         }
 
+        public ICommand ResultCommand
+        {
+            get
+            {
+                this.resultCommand = this.resultCommand ?? new MvxCommand(this.DoResultCommand);
+                return this.resultCommand;
+            }
+        }
+
+        private void DoResultCommand()
+        {
+            throw new NotImplementedException();
+        }
+
         private async void DoCandidateCommand(Voting voting)
         {
             if (DateTime.Now >= voting.DateTimeStart && DateTime.Now <= voting.DateTimeEnd)
@@ -57,8 +72,15 @@
             }
             else
             {
+                this.dialogService.Alert(
+                "Error",
+                "The vote is closed",
+                "Accept",
+                () => { this.navigationService.Navigate<ResultViewModel>(); }
+            );
 
-                this.dialogService.Alert("Error", "The vote is closed", "Accept");
+                //this.dialogService.Alert("Error", "The vote is closed", "Accept");
+                //await this.navigationService.Navigate<ResultViewModel>();
 
             }
         }

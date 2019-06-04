@@ -53,6 +53,8 @@
         {
 
             this.dialogService.Alert("OK", "Do you want vote for  this candidate", "Accept");
+            
+                
         }
 
         public List<Candidate> Candidates 
